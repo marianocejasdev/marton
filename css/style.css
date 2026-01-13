@@ -768,6 +768,8 @@ body.no-scroll {
             font-weight: 700;
             padding: 0.25rem 0.9rem;
             border-radius: 999px;
+            display: flex;
+            gap: .5rem;
         }
 
         /* Cuerpo de la card */
