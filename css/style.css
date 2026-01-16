@@ -170,6 +170,43 @@ body.no-scroll {
 
 /* end of WHATSAPP BUTTON */
 
+/* DOTS */
+/* Contenedor de navegación por puntos */
+.dots-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    min-height: 20px;
+}
+
+/* El punto en estado base */
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Un blanco traslúcido o gris */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* El punto cuando la tarjeta está activa */
+.dot.active {
+    background-color: var(--yellow-color);
+    /* Tu color de acento (ej. Rojo) */
+    transform: scale(1.3);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Ocultar en tablets/desktop donde ya no hay scroll lateral */
+@media (min-width: 1024px) {
+    .dots-navigation {
+        display: none;
+    }
+}
+
 /* NAV */
 .nav {
     background-color: var(--dark-color);
@@ -335,34 +372,39 @@ body.no-scroll {
         & .nav__container {
             padding-block: 1.5rem;
 
-
-            .nav__toggle,
-            .nav__close,
-            .nav__backdrop {
+            /* Forzamos que estos NUNCA se vean en desktop */
+            & .nav__toggle,
+            & .nav__close,
+            & .nav__backdrop {
                 display: none !important;
             }
 
             & .nav__menu {
                 position: static;
-                transform: none;
-                transition: none;
                 width: auto;
+                height: auto;
                 background: transparent;
                 padding: 0;
-                display: block;
+                transform: none !important;
+                /* Anula el translateX del móvil */
+                transition: none;
 
+                /* IMPORTANTE: Overrides para el JS */
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                pointer-events: auto !important;
 
                 & .nav__list {
                     flex-direction: row;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 1.5rem;
+                    gap: 2.5rem;
+                    /* Un poco más de espacio queda mejor en desktop */
                 }
 
                 & .nav__menu-link {
-                    font-size: 1rem;
-                    font-weight: 400;
-                    color: var(--white-color);
+                    font-size: 1.1rem;
+                    /* Ajustado para mejor legibilidad */
+                    color: var(--light-color);
                 }
             }
         }
@@ -702,6 +744,7 @@ body.no-scroll {
 
         /* LISTA DE CARDS (mobile first: carrusel horizontal) */
         & .rutinas__cards {
+
             display: flex;
             flex-wrap: nowrap;
             overflow-x: auto;
@@ -712,22 +755,18 @@ body.no-scroll {
             overscroll-behavior-inline: contain;
             padding-inline: .25rem;
 
-            &::-webkit-scrollbar {
-                display: none;
-            }
-
-            /* ocultar panel inactivo */
-            /* &[aria-hidden="true"] {
-                display: none;
-                overflow: hidden;
-            } */
-
             & .rutinas__card {
                 flex: 0 0 100%;
                 /* 1 card por “pantalla” en mobile */
                 scroll-snap-align: start;
                 scroll-snap-stop: always;
             }
+
+            &::-webkit-scrollbar {
+                display: none;
+                /* Mantenemos limpio el diseño */
+            }
+
         }
 
         /* CARD */

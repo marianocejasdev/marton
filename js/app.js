@@ -1,4 +1,4 @@
-/* main.js — unificado */
+/* main.js — Lógica Unificada y Corregida */
 
 // Pulse sutil WhatsApp
 setInterval(() => document.querySelector('.whatsapp-button')?.classList.toggle('attn'), 12000);
@@ -19,169 +19,144 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     setScrollPadding();
     window.addEventListener('resize', debounce(setScrollPadding, 200));
-    if ('ResizeObserver' in window && navEl) new ResizeObserver(() => setScrollPadding()).observe(navEl);
 
-    /* ========== 2) NAV móvil accesible (hidden + inert SOLO en mobile) ========== */
+    /* ========== 2) NAV móvil accesible corregido ========== */
     const MENU = document.getElementById('nav-menu');
     const BTN_TOGGLE = document.getElementById('nav__toggle');
-    const BTN_CLOSE = document.getElementById('nav__close'); // puede no existir
-    const BACKDROP = document.querySelector('.nav__backdrop'); // opcional
-    const MENU_LINKS = MENU ? MENU.querySelectorAll('a[href^="#"]') : [];
-
+    const BTN_CLOSE = document.getElementById('nav__close');
+    const BACKDROP = document.querySelector('.nav__backdrop');
     const mqDesktop = window.matchMedia('(min-width: 1200px)');
-    const isMobileView = () => !mqDesktop.matches;
 
     const lockScroll = (on) => { document.documentElement.style.overflow = on ? 'hidden' : ''; };
 
     const openMenu = () => {
-        if (!MENU || !isMobileView()) return; // no abrir en desktop
+        if (!MENU || mqDesktop.matches) return;
         MENU.hidden = false;
         MENU.inert = false;
         MENU.classList.add('is-active');
         BTN_TOGGLE?.setAttribute('aria-expanded', 'true');
-        BTN_CLOSE?.classList.remove('hidden');
         BACKDROP?.classList.add('active');
         lockScroll(true);
-        MENU.querySelector('a')?.focus();
     };
 
     const closeMenu = () => {
-        if (!MENU || !isMobileView()) return; // no cerrar (ni tocar inert) en desktop
+        if (!MENU || mqDesktop.matches) return;
         MENU.classList.remove('is-active');
         MENU.hidden = true;
         MENU.inert = true;
         BTN_TOGGLE?.setAttribute('aria-expanded', 'false');
-        BTN_CLOSE?.classList.add('hidden');
         BACKDROP?.classList.remove('active');
         lockScroll(false);
-        BTN_TOGGLE?.focus();
     };
 
-    // Estado correcto al cargar (según viewport)
-    const applyInitialMenuState = () => {
-        if (!MENU) return;
-        if (isMobileView()) {
-            MENU.hidden = true;
-            MENU.inert = true;
-            MENU.classList.remove('is-active');
+    // Función crucial: Limpia estados de móvil al pasar a Desktop
+    const handleDesktopChange = (e) => {
+        if (e.matches) {
+            // Estamos en Desktop
+            if (MENU) {
+                MENU.hidden = false;
+                MENU.inert = false;
+                MENU.classList.remove('is-active');
+            }
             BACKDROP?.classList.remove('active');
-            BTN_TOGGLE?.setAttribute('aria-expanded', 'false');
             lockScroll(false);
         } else {
-            MENU.hidden = false;
-            MENU.inert = false;
-            MENU.classList.remove('is-active');
-            BACKDROP?.classList.remove('active');
-            BTN_TOGGLE?.setAttribute('aria-expanded', 'false');
-            lockScroll(false);
+            // Estamos en Móvil (inicializar estado cerrado)
+            if (MENU && !MENU.classList.contains('is-active')) {
+                MENU.hidden = true;
+                MENU.inert = true;
+            }
         }
     };
-    applyInitialMenuState();
-    mqDesktop.addEventListener('change', applyInitialMenuState);
 
-    // Toggle solo afecta mobile
-    BTN_TOGGLE?.addEventListener('click', () => {
-        const isOpen = MENU && !MENU.hidden;
-        isOpen ? closeMenu() : openMenu();
-    });
-    BTN_CLOSE?.addEventListener('click', closeMenu);
-    BACKDROP?.addEventListener('click', closeMenu);
+    BTN_TOGGLE?.addEventListener('click', () => (MENU && !MENU.hidden) ? closeMenu() : openMenu());
+    [BTN_CLOSE, BACKDROP].forEach(el => el?.addEventListener('click', closeMenu));
 
-    // Cerrar al navegar dentro del menú (mobile solamente)
-    MENU_LINKS.forEach((a) => a.addEventListener('click', () => { if (isMobileView()) closeMenu(); }));
+    // Escuchar cambios de resolución
+    mqDesktop.addEventListener('change', handleDesktopChange);
+    handleDesktopChange(mqDesktop); // Ejecutar al cargar
 
-    // Cerrar si cambia el hash (solo mobile)
-    window.addEventListener('hashchange', () => { if (isMobileView() && MENU && !MENU.hidden) closeMenu(); });
+    /* ========== 3) Lógica de Carrusel (Dots) REUTILIZABLE ========== */
+    function initCarouselDots(containerSelector) {
+        const containers = document.querySelectorAll(containerSelector);
 
-    /* ========== 3) Inicializador genérico de tabs ========== */
-    function initTabs({ buttonSelector, cardsSelector, activeBtnClass, cardsActivePrefix, displayWhenActive = 'flex' }) {
-        const btns = document.querySelectorAll(buttonSelector);
-        const allCards = document.querySelectorAll(cardsSelector);
-        if (!btns.length || !allCards.length) return;
+        containers.forEach(container => {
+            if (window.getComputedStyle(container).display === 'none') return;
 
-        const applyVisibility = (target) => {
-            allCards.forEach((cards) => {
-                const match = target && cards.classList.contains(`${cardsActivePrefix}${target}`);
-                cards.style.display = match ? displayWhenActive : 'none';
+            const dotsContainer = container.parentElement.querySelector('.dots-navigation');
+            if (!dotsContainer) return;
+
+            const cards = Array.from(container.children);
+
+            dotsContainer.innerHTML = '';
+            cards.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dotsContainer.appendChild(dot);
             });
-        };
 
-        // Estado inicial: buscar el botón activo por clase
-        const activeBtn = document.querySelector(`${buttonSelector}.${activeBtnClass}`);
-        if (activeBtn) {
-            const target = activeBtn.dataset.target;
-            applyVisibility(target);
+            const dots = dotsContainer.querySelectorAll('.dot');
 
-            btns.forEach((b) => {
-                const isActive = b === activeBtn;
-                b.setAttribute('aria-selected', isActive ? 'true' : 'false');
-                const img = b.querySelector('img');
-
-                if (img) {
-                    if (isActive && b.dataset.iconActive) {
-                        img.src = b.dataset.iconActive;
-                    } else if (!isActive && b.dataset.iconDefault) {
-                        img.src = b.dataset.iconDefault;
-                    }
-                }
-            });
-        }
-
-        // Click en cada tab
-        btns.forEach((button) => {
-            button.addEventListener('click', () => {
-                const target = button.dataset.target;
-
-                // desactivar todos
-                btns.forEach((b) => {
-                    b.classList.remove(activeBtnClass);
-                    b.setAttribute('aria-selected', 'false');
-
-                    const img = b.querySelector('img');
-                    if (img && b.dataset.iconDefault) {
-                        img.src = b.dataset.iconDefault;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const index = cards.indexOf(entry.target);
+                        dots.forEach((d, i) => d.classList.toggle('active', i === index));
                     }
                 });
+            }, { root: container, threshold: 0.6 });
 
-                // activar actual
-                button.classList.add(activeBtnClass);
-                button.setAttribute('aria-selected', 'true');
-
-                const img = button.querySelector('img');
-                if (img && button.dataset.iconActive) {
-                    img.src = button.dataset.iconActive;
-                }
-
-                // mostrar cards correspondientes
-                applyVisibility(target);
-            });
+            cards.forEach(c => observer.observe(c));
         });
     }
 
-    // Tabs de Rutinas
+    /* ========== 4) Inicializador de Tabs ========== */
+    function initTabs({ buttonSelector, cardsSelector, activeBtnClass, cardsActivePrefix }) {
+        const btns = document.querySelectorAll(buttonSelector);
+        const allCards = document.querySelectorAll(cardsSelector);
+
+        const updateTabUI = (targetBtn) => {
+            btns.forEach(btn => {
+                const img = btn.querySelector('img');
+                const isActive = btn === targetBtn;
+                btn.classList.toggle(activeBtnClass, isActive);
+                btn.setAttribute('aria-selected', isActive);
+
+                if (img) {
+                    if (isActive && btn.dataset.iconActive) img.src = btn.dataset.iconActive;
+                    else if (!isActive && btn.dataset.iconDefault) img.src = btn.dataset.iconDefault;
+                }
+            });
+
+            const target = targetBtn.dataset.target;
+            allCards.forEach(group => {
+                group.style.display = group.classList.contains(`${cardsActivePrefix}${target}`) ? 'flex' : 'none';
+            });
+
+            initCarouselDots(cardsSelector);
+        };
+
+        btns.forEach(btn => btn.addEventListener('click', () => updateTabUI(btn)));
+
+        const initialActive = document.querySelector(`${buttonSelector}.${activeBtnClass}`) || btns[0];
+        if (initialActive) updateTabUI(initialActive);
+    }
+
+    /* ========== 5) Ejecución ========== */
+
+    // Iniciar Rutinas
     initTabs({
         buttonSelector: '.rutinas__selector-btn',
         cardsSelector: '.rutinas__cards',
         activeBtnClass: 'rutinas__selector-btn--active',
-        cardsActivePrefix: 'rutinas__cards--',
-        displayWhenActive: 'flex'
+        cardsActivePrefix: 'rutinas__cards--'
     });
 
-    /* ========== 4) Footer: año automático ========== */
+    // Iniciar Dietas
+    initCarouselDots('.dietas__cards');
+
+    // Footer Año
     const timeEl = document.querySelector('.footer time');
-    if (timeEl) {
-        const year = String(new Date().getFullYear());
-        timeEl.textContent = year;
-        timeEl.setAttribute('datetime', year);
-    }
-
-    /* ========== 5) Smooth scroll (opcional) ========== */
-    // document.documentElement.style.scrollBehavior = 'smooth';
-
-    /* ========== 6) Escape para cerrar (solo mobile) ========== */
-    document.addEventListener('keydown', (e) => {
-        if ((e.key === 'Escape' || e.key === 'Esc') && isMobileView()) {
-            if (MENU && !MENU.hidden) closeMenu();
-        }
-    });
+    if (timeEl) timeEl.textContent = new Date().getFullYear();
 });
