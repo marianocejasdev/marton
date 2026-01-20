@@ -2377,6 +2377,19 @@ body.no-scroll {
         }
     }
 
+    .icon-inline {
+        width: 16px;
+        /* Tamaño ajustado al texto */
+        height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        /* Lo alinea al centro de la línea de texto */
+        margin: 0 4px;
+        /* Espaciado a los lados */
+        filter: invert(1);
+        /* Si el icono es negro y tu fondo es oscuro, esto lo pone blanco/claro */
+    }
+
     /* Link de ayuda y volver */
     & .exito__actions {
         display: flex;
@@ -2410,6 +2423,7 @@ body.no-scroll {
         }
     }
 }
+
 
 /* 3. Media Queries para pantallas grandes */
 @media (min-width: 768px) {
