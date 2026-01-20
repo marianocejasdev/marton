@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>¡Todo listo! | Martín Cullari</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        /* Estilos específicos para manejar los estados de JS sin romper el diseño */
+        #success-ui,
+        #error-ui {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="layout-exito">
+
+    <main class="exito">
+        <div class="exito__container container">
+
+            <div id="success-ui">
+                <div class="exito__header">
+                    <div class="exito__icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#010101" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                    </div>
+                    <h1 class="exito__title">¡PAGO COMPLETADO!</h1>
+                    <p class="exito__subtitle">Tu rutina ya está lista para descargar.</p>
+                </div>
+
+                <div class="exito__download-card">
+                    <a href="#" id="download-btn" class="exito__download-btn">DESCARGAR AHORA</a>
+                </div>
+            </div>
+
+            <div id="error-ui">
+                <div class="exito__header">
+                    <h1 class="exito__title" style="color: #ff4444;">UPS! ALGO FALLÓ</h1>
+                    <p class="exito__subtitle">No pudimos encontrar tu enlace de descarga automático.</p>
+                </div>
+                <p class="exito__warning" style="margin-top: 1rem; color: var(--white-color);">
+                    Si ya realizaste el pago, no te preocupes. Escribinos por WhatsApp y te lo pasamos por ahí.
+                </p>
+            </div>
+
+            <div class="exito__actions">
+                <a href="index.html" class="exito__btn-back">VOLVER AL INICIO</a>
+                <a href="https://wa.me/5491162304028?text=%C2%A1Hola%20Marton!%20Acabo%20de%20comprar%20mi%20plan%20pero%20tuve%20un%20problema%20con%20la%20descarga%20directa.%20%C2%BFMe%20podr%C3%ADas%20ayudar%3F"
+                    class="exito__btn-help" target="_blank" rel="noopener noreferrer">
+                    ¿NECESITÁS AYUDA? ESCRIBIME ACÁ
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <p class="footer__text">&copy; 2026 Martín Cullari</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fileId = urlParams.get('id'); // Obtiene el ID de Google Drive de la URL
+
+            const successUI = document.getElementById('success-ui');
+            const errorUI = document.getElementById('error-ui');
+            const downloadBtn = document.getElementById('download-btn');
+
+            // Verificamos que el ID exista (los IDs de Google Drive suelen tener 33 caracteres)
+            if (fileId && fileId.length > 15) {
+                // Seteamos el link de descarga directa de Google Drive
+                downloadBtn.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
+                successUI.style.display = 'block';
+                errorUI.style.display = 'none';
+            } else {
+                // Si no hay ID válido, mostramos error
+                successUI.style.display = 'none';
+                errorUI.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+
+</html>

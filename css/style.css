@@ -2239,3 +2239,219 @@ body.no-scroll {
 }
 
 /* end of FOOTER */
+
+/* ==========================================================================
+   PÁGINA DE ÉXITO (100vh / Direct Download)
+   ========================================================================== */
+
+/* 1. Reset para el layout de éxito */
+.layout-exito {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    /* Altura dinámica para móviles */
+    margin: 0;
+    overflow: hidden;
+    /* Bloquea el scroll para efecto App */
+    background-color: var(--dark-color);
+
+    /* Forzamos que el footer se mantenga al fondo */
+    & .footer {
+        margin-top: auto;
+        background-color: var(--dark-color);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-block: 1rem;
+    }
+}
+
+/* 2. Sección Principal */
+.exito {
+    flex-grow: 1;
+    /* Estira el contenido para ocupar el espacio sobrante */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    & .exito__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 500px;
+        width: 100%;
+        gap: 2rem;
+        animation: fadeIn 0.8s ease-out;
+    }
+
+    /* Header y Título */
+    & .exito__header {
+        text-align: center;
+
+        & .exito__icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--yellow-color);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 20px rgba(255, 205, 1, 0.2);
+        }
+
+        & .exito__title {
+            font-family: 'Humane';
+            font-size: 6rem;
+            color: var(--yellow-color);
+            line-height: 0.85;
+            margin: 0;
+            text-wrap: nowrap;
+        }
+
+        & .exito__subtitle {
+            font-family: 'Outfit';
+            font-size: 1.15rem;
+            color: var(--white-color);
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+    }
+
+    /* Tarjeta de Descarga */
+    & .exito__download-card {
+        /* background-color: #0a0a0a; */
+        /* Un gris casi negro para resaltar del fondo */
+        /* border: 2px solid var(--yellow-color); */
+        padding: 2rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        border-radius: 4px;
+        /* Siguiendo tu estilo de bordes rectos */
+
+        & .exito__card-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+
+            & div {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        & .exito__filename {
+            font-family: 'Outfit';
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--white-color);
+        }
+
+        & .exito__filesize {
+            font-family: 'Outfit';
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        & .exito__download-btn {
+            font-family: 'Humane';
+            font-size: 3rem;
+            background-color: var(--yellow-color);
+            color: var(--dark-color);
+            padding: 0.6rem;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.02);
+                filter: brightness(1.1);
+            }
+
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+    }
+
+    /* Link de ayuda y volver */
+    & .exito__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+
+        & .exito__btn-back {
+            font-family: 'Outfit';
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            transition: color 0.2s;
+
+            &:hover {
+                color: var(--white-color);
+            }
+        }
+
+        & .exito__btn-help {
+            font-family: 'Outfit';
+            font-weight: 600;
+            color: var(--yellow-color);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+/* 3. Media Queries para pantallas grandes */
+@media (min-width: 768px) {
+    .exito .exito__header .exito__title {
+        font-size: 10rem;
+    }
+
+    .exito .exito__container {
+        gap: 2.5rem;
+    }
+}
+
+/* 4. Ajustes para pantallas pequeñas o modo horizontal */
+@media (max-height: 750px) {
+    .exito .exito__header .exito__title {
+        font-size: 5rem;
+    }
+
+    .exito .exito__container {
+        gap: 1rem;
+    }
+
+    .exito .exito__download-card {
+        padding: 1.2rem;
+    }
+
+    .exito .exito__header .exito__icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
