@@ -70,13 +70,12 @@
             const successUI = document.getElementById('success-ui');
             const errorUI = document.getElementById('error-ui');
             const downloadBtn = document.getElementById('download-btn');
+            const subtitle = document.querySelector('.exito__subtitle');
 
-            // Detectar si es Safari/iOS o si estamos dentro de un navegador de App (Discord, IG, etc)
-            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ||
-                (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream);
-
-            // Detectar navegadores integrados (In-App)
-            const isInApp = /FBAN|FBAV|Instagram|Discord|Twitter|Line/i.test(navigator.userAgent);
+            // 1. Detectores de entorno
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) || isIOS;
+            const isInApp = /FBAN|FBAV|Instagram|Discord|Twitter|Threads/i.test(navigator.userAgent);
 
             if (fileId && fileId.length > 15) {
                 const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
@@ -85,16 +84,19 @@
                 successUI.style.display = 'block';
                 errorUI.style.display = 'none';
 
-                // Si es Safari O un navegador de App (como Discord)
+                // 2. Lógica para Instagram / Safari / Discord
                 if (isSafari || isInApp) {
-                    // Forzamos target blank para que intente saltar al navegador real del sistema
+                    // Forzamos apertura en pestaña nueva para saltar el bloqueo de descarga directa
                     downloadBtn.setAttribute('target', '_blank');
+                    downloadBtn.setAttribute('rel', 'noopener noreferrer');
 
-                    // Hack para algunos In-App: intentar disparar la descarga tras un clic
-                    downloadBtn.addEventListener('click', (e) => {
-                        // En algunos casos de In-App, esto ayuda a que el sistema "despierte"
-                        console.log("Intentando descargar en navegador integrado...");
-                    });
+                    // Si están atrapados en el navegador de Instagram:
+                    if (isInApp) {
+                        if (subtitle) {
+                            subtitle.innerHTML = "Si la descarga no inicia, tocá los <strong>tres puntitos</strong> arriba a la derecha y seleccioná <strong>'Abrir en navegador'</strong>.";
+                            subtitle.style.color = "var(--yellow-color)"; // Le damos importancia visual
+                        }
+                    }
                 }
 
             } else {
