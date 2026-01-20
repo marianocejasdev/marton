@@ -2386,7 +2386,7 @@ body.no-scroll {
         /* Lo alinea al centro de la línea de texto */
         margin: 0 4px;
         /* Espaciado a los lados */
-        filter: invert(1);
+        /* filter: invert(1); */
         /* Si el icono es negro y tu fondo es oscuro, esto lo pone blanco/claro */
     }
 
@@ -2413,7 +2413,7 @@ body.no-scroll {
             font-weight: 600;
             color: var(--yellow-color);
             font-size: 0.8rem;
-            letter-spacing: 1px;
+            /* letter-spacing: 1px; */
             text-transform: uppercase;
             text-decoration: none;
 

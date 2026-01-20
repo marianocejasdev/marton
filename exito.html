@@ -20,17 +20,18 @@
             background: rgba(255, 205, 1, 0.08);
             padding: 1.25rem;
             border: 1px dashed var(--yellow-color);
-            margin-top: 0.5rem;
+            /* margin-top: 0.5rem; */
             max-width: 400px;
             animation: fadeIn 0.5s ease;
         }
 
         .highlight-notice p {
             font-family: 'Outfit';
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--white-color);
-            line-height: 1.4;
-            margin: 0;
+            line-height: 2;
+            /* margin: 0; */
+            text-align: center;
         }
 
         @keyframes fadeIn {
@@ -61,17 +62,10 @@
                         </svg>
                     </div>
                     <h1 class="exito__title">¡PAGO COMPLETADO!</h1>
-                    <p class="exito__subtitle">Tu rutina ya está disponible.</p>
+                    <p class="exito__subtitle">Tu mejor versión arranca hoy.</p>
                 </div>
 
                 <div class="exito__download-card">
-                    <div class="exito__card-info">
-                        <div style="font-size: 2rem;">📄</div>
-                        <div>
-                            <span class="exito__filename">Plan de Entrenamiento.pdf</span>
-                            <span class="exito__filesize">PDF (Descarga Directa)</span>
-                        </div>
-                    </div>
                     <a href="#" id="download-btn" class="exito__download-btn">DESCARGAR AHORA</a>
                 </div>
             </div>
@@ -85,11 +79,13 @@
 
             <div id="app-notice" class="highlight-notice">
                 <p>
-                    Si la descarga no inicia, tocá arriba en los <strong>tres puntitos</strong> (⋮) y seleccioná
-                    <strong>
-                        <img src="assets/icons/square-arrow-out-up-right.svg" alt="" class="icon-inline">
-                        "Abrir en navegador externo"
-                    </strong>.
+                    Si la descarga no inicia, tocá arriba en los <strong>tres puntitos</strong>
+                    <img src="assets/icons/ellipsis-vertical.svg" alt="" class="icon-inline">
+                    y seleccioná
+                </p>
+                <p>
+                    <img src="assets/icons/square-arrow-out-up-right.svg" alt="" class="icon-inline">
+                    <strong>"Abrir en navegador externo".</strong>
                 </p>
             </div>
 
