@@ -70,13 +70,31 @@
             const successUI = document.getElementById('success-ui');
             const errorUI = document.getElementById('error-ui');
             const downloadBtn = document.getElementById('download-btn');
+            const subtitle = document.querySelector('.exito__subtitle');
 
-            // Verificamos que el ID exista (los IDs de Google Drive suelen tener 33 caracteres)
+            // 1. Detectar si el usuario está en iOS (iPhone, iPad, iPod)
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+            // 2. Verificamos que el ID exista
             if (fileId && fileId.length > 15) {
-                // Seteamos el link de descarga directa de Google Drive
-                downloadBtn.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
+                const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+
+                downloadBtn.href = downloadUrl;
                 successUI.style.display = 'block';
                 errorUI.style.display = 'none';
+
+                // 3. Ajustes específicos para iOS
+                if (isIOS) {
+                    // En iOS forzamos que abra en pestaña nueva porque la descarga directa suele fallar
+                    downloadBtn.setAttribute('target', '_blank');
+                    downloadBtn.textContent = "VER Y GUARDAR RUTINA";
+
+                    // Opcional: Cambiamos el subtítulo para guiar al usuario de iPhone
+                    if (subtitle) {
+                        subtitle.innerHTML = "Tocá el botón para abrir tu plan. <br> Luego usá el icono de <strong>compartir</strong> para guardarlo.";
+                    }
+                }
+
             } else {
                 // Si no hay ID válido, mostramos error
                 successUI.style.display = 'none';
