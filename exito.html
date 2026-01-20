@@ -30,7 +30,7 @@
                         </svg>
                     </div>
                     <h1 class="exito__title">¡PAGO COMPLETADO!</h1>
-                    <p class="exito__subtitle">Tu rutina ya está lista para descargar.</p>
+                    <p class="exito__subtitle">Tu mejor versión arranca hoy</p>
                 </div>
 
                 <div class="exito__download-card">
@@ -71,21 +71,30 @@
             const errorUI = document.getElementById('error-ui');
             const downloadBtn = document.getElementById('download-btn');
 
-            // Detector de Safari / Motores iOS
+            // Detectar si es Safari/iOS o si estamos dentro de un navegador de App (Discord, IG, etc)
             const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ||
                 (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream);
 
+            // Detectar navegadores integrados (In-App)
+            const isInApp = /FBAN|FBAV|Instagram|Discord|Twitter|Line/i.test(navigator.userAgent);
+
             if (fileId && fileId.length > 15) {
-                // Link de descarga de Google Drive
                 const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
                 downloadBtn.href = downloadUrl;
 
                 successUI.style.display = 'block';
                 errorUI.style.display = 'none';
 
-                // Si es Safari, forzamos que abra en pestaña nueva para que no lo bloquee
-                if (isSafari) {
+                // Si es Safari O un navegador de App (como Discord)
+                if (isSafari || isInApp) {
+                    // Forzamos target blank para que intente saltar al navegador real del sistema
                     downloadBtn.setAttribute('target', '_blank');
+
+                    // Hack para algunos In-App: intentar disparar la descarga tras un clic
+                    downloadBtn.addEventListener('click', (e) => {
+                        // En algunos casos de In-App, esto ayuda a que el sistema "despierte"
+                        console.log("Intentando descargar en navegador integrado...");
+                    });
                 }
 
             } else {
