@@ -65,20 +65,30 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const fileId = urlParams.get('id'); // Obtiene el ID de Google Drive de la URL
+            const fileId = urlParams.get('id');
 
             const successUI = document.getElementById('success-ui');
             const errorUI = document.getElementById('error-ui');
             const downloadBtn = document.getElementById('download-btn');
 
-            // Verificamos que el ID exista (los IDs de Google Drive suelen tener 33 caracteres)
+            // Detector de Safari / Motores iOS
+            const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent) ||
+                (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream);
+
             if (fileId && fileId.length > 15) {
-                // Seteamos el link de descarga directa de Google Drive
-                downloadBtn.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
+                // Link de descarga de Google Drive
+                const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+                downloadBtn.href = downloadUrl;
+
                 successUI.style.display = 'block';
                 errorUI.style.display = 'none';
+
+                // Si es Safari, forzamos que abra en pestaña nueva para que no lo bloquee
+                if (isSafari) {
+                    downloadBtn.setAttribute('target', '_blank');
+                }
+
             } else {
-                // Si no hay ID válido, mostramos error
                 successUI.style.display = 'none';
                 errorUI.style.display = 'block';
             }
