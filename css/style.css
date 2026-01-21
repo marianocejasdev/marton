@@ -209,10 +209,27 @@ body.no-scroll {
 
 /* NAV */
 .nav {
+
     background-color: var(--dark-color);
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    & .nav__topbar {
+        padding-block: .5rem;
+        background-color: var(--yellow-color);
+        text-align: center;
+        font-family: 'Outfit';
+        font-size: 0.8rem;
+        text-wrap: balance;
+        margin: 0;
+
+        @media (min-width: 1200px) {
+            font-size: 0.9rem;
+        }
+
+
+    }
 
     & .nav__container {
         display: flex;
