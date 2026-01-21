@@ -23,6 +23,11 @@
             /* margin-top: 0.5rem; */
             /* max-width: 400px; */
             animation: fadeIn 0.5s ease;
+
+            @media (min-width: 1200px) {
+                display: none;
+            }
+
         }
 
         .highlight-notice p {
@@ -101,11 +106,26 @@
         </div>
     </main>
 
-    <footer class="footer">
+    <!-- FOOTER -->
+    <footer class="footer" aria-labelledby="footer-title">
         <div class="footer__container container">
-            <p class="footer__text">&copy; 2025 Martín Cullari</p>
+            <h2 id="footer-title" class="visually-hidden">Información del sitio</h2>
+
+            <p class="footer__text">
+                &copy; <time datetime="2026">2026</time> Martín Cullari – Todos los derechos reservados.
+            </p>
+
+            <p class="footer__credits">
+                Sitio desarrollado por
+                <a href="https://github.com/marianocejasdev" target="_blank" rel="noopener noreferrer"
+                    class="footer__link" aria-label="Perfil de GitHub de Mariano Cejas (se abre en una pestaña nueva)">
+                    Mariano Cejas
+                    <span class="visually-hidden">(se abre en una pestaña nueva)</span>
+                </a>
+            </p>
         </div>
     </footer>
+    <!-- end of FOOTER -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
