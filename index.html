@@ -98,6 +98,7 @@
                     <li class="nav__menu-item"><a href="#rutinas" class="nav__menu-link">RUTINAS</a></li>
                     <li class="nav__menu-item"><a href="#asesorias" class="nav__menu-link">ASESORÍAS</a></li>
                     <li class="nav__menu-item"><a href="#dietas" class="nav__menu-link">DIETAS</a></li>
+                    <li class="nav__menu-item"><a href="#guias" class="nav__menu-link">GUÍAS</a></li>
                     <li class="nav__menu-item"><a href="#testimonios" class="nav__menu-link">TESTIMONIOS</a></li>
                     <li class="nav__menu-item"><a href="#faq" class="nav__menu-link">FAQ</a></li>
                 </ul>
@@ -139,24 +140,69 @@
     <main>
 
         <!-- PRODUCTOS DESTACADOS -->
-        <section class="rutinas rutinas__destacados" id="rutinas" aria-labelledby="rutinas-title">
+        <section class="rutinas rutinas__destacados" aria-labelledby="rutinas-title">
             <div class="rutinas__container container rutinas__destacados">
 
-                <!-- PANEL HOMBRE -->
+                <div class="rutinas__header">
+                    <h2 class="rutinas__title" id="rutinas-title">LO NUEVO DE ESTA SEMANA</h2>
+                </div>
+
                 <div class="rutinas__cards rutinas__cards--hombre" id="panel-rutinas-hombre" role="tabpanel"
                     aria-labelledby="tab-rutinas-hombre" aria-hidden="false">
 
-                    <!-- RUTINA DE LA SEMANA #1 -->
+                    <!-- RUTINAS 4 DIAS - TREN POSTERIOR Y DELANTERO -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/portada-rutina-semanal.jpg" alt="Rutina de 3 días para hombres"
-                                class="rutinas__card-image" loading="lazy" decoding="async">
+                            <img src="assets/img/rutina-4-dias-anterior-delantero.jpg"
+                                alt="Rutina 4 días Tren Posterior y Delantero" class="rutinas__card-image"
+                                loading="lazy" decoding="async">
 
-                            <span class="rutinas__card-label">
+                            <!-- <span class="rutinas__card-label">
                                 <img src="assets/icons/clock-black.svg" alt="" aria-hidden="true" width="16" height="16"
                                     loading="lazy" decoding="async">
-                                Disponible hasta el 25/01
-                            </span>
+                                Disponible hasta el 01/02
+                            </span> -->
+
+                        </div>
+
+                        <div class="rutinas__card-body">
+                            <div class="rutinas__card-badges">
+                                <span class="rutinas__badge rutinas__badge--icon">
+                                    <img src="assets/icons/biceps-flexed.svg" alt="" aria-hidden="true" width="16"
+                                        height="16" loading="lazy" decoding="async">Rutina de 4 Días </span>
+                                <span class="rutinas__badge rutinas__badge--level">Intermedio</span>
+                            </div>
+
+                            <p class="rutinas__card-text">
+                                Maximizá tu simetría con esta división enfocada en cadenas musculares completas.
+                            </p>
+
+                            <div class="rutinas__card-bottom">
+                                <div class="rutinas__card-prices">
+                                    <p class="rutinas__card-price--before">Antes: $42.000</p>
+                                    <p class="rutinas__card-price--now">
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
+                                            height="16" loading="lazy" decoding="async">
+                                        Ahora: $32.500
+                                    </p>
+                                </div>
+                                <a href="https://mpago.la/2F37yCj" target="_blank" rel="noopener"
+                                    class="rutinas__card-btn">COMPRAR →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Rutina 6 días Bro Split -->
+                    <article class="rutinas__card">
+                        <div class="rutinas__card-media">
+                            <img src="assets/img/rutina-6-dias-bro-split.jpg" alt="Rutina 6 días Bro Split"
+                                class="rutinas__card-image" loading="lazy" decoding="async">
+
+                            <!-- <span class="rutinas__card-label">
+                                <img src="assets/icons/clock-black.svg" alt="" aria-hidden="true" width="16" height="16"
+                                    loading="lazy" decoding="async">
+                                Disponible hasta el 01/02
+                            </span> -->
                         </div>
 
                         <div class="rutinas__card-body">
@@ -164,13 +210,13 @@
                                 <span class="rutinas__badge rutinas__badge--icon">
                                     <img src="assets/icons/biceps-flexed.svg" alt="" aria-hidden="true" width="16"
                                         height="16" loading="lazy" decoding="async">
-                                    PPL + Upper/Lower
+                                    Bro Split
                                 </span>
                                 <span class="rutinas__badge rutinas__badge--level">Avanzado</span>
                             </div>
 
                             <p class="rutinas__card-text">
-                                Optimizá tu frecuencia de entrenamiento y ganancia muscular.
+                                Frecuencia 1 pura para aniquilar cada músculo con volumen extremo.
                             </p>
 
                             <div class="rutinas__card-bottom">
@@ -182,23 +228,53 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/2C9ZVqJ" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/1U91d85" target="_blank" rel="noopener"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- DIETA DE LA SEMANA #1 -->
+                    <!-- Guía para Pump Masivo -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/portada-dieta-semanal.jpg" alt="Rutina de 3 días para hombres"
+                            <img src="assets/img/portada-guia-pump.jpg" alt="Guía para Pump Masivo"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
+                        </div>
 
-                            <span class="rutinas__card-label">
-                                <img src="assets/icons/clock-black.svg" alt="" aria-hidden="true" width="16" height="16"
-                                    loading="lazy" decoding="async">
-                                Disponible hasta el 25/01
-                            </span>
+                        <div class="rutinas__card-body">
+                            <div class="rutinas__card-badges">
+                                <span class="rutinas__badge rutinas__badge--icon">
+                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
+                                        height="16" loading="lazy" decoding="async">
+                                    Vasodilatación
+                                </span>
+                                <span class="rutinas__badge rutinas__badge--level">Pro Pump</span>
+                            </div>
+
+                            <p class="rutinas__card-text">
+                                Dominá la farmacología y suplementación para bombeos que rompen la piel.
+                            </p>
+
+                            <div class="rutinas__card-bottom">
+                                <div class="rutinas__card-prices">
+                                    <p class="rutinas__card-price--before">Antes: $42.000</p>
+                                    <p class="rutinas__card-price--now">
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
+                                            height="16" loading="lazy" decoding="async">
+                                        Ahora: $32.500
+                                    </p>
+                                </div>
+                                <a href="https://mpago.la/2pHWq9N" target="_blank" rel="noopener"
+                                    class="rutinas__card-btn">COMPRAR →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Dieta 2300kcal Ayuno -->
+                    <article class="rutinas__card">
+                        <div class="rutinas__card-media">
+                            <img src="assets/img/portada-dieta-2300.jpg" alt="Dieta 2300kcal Ayuno"
+                                class="rutinas__card-image" loading="lazy" decoding="async">
                         </div>
 
                         <div class="rutinas__card-body">
@@ -206,14 +282,13 @@
                                 <span class="rutinas__badge rutinas__badge--icon">
                                     <img src="assets/icons/biceps-flexed.svg" alt="" aria-hidden="true" width="16"
                                         height="16" loading="lazy" decoding="async">
-                                    Volumen
+                                    Ideal Ayuno
                                 </span>
-                                <span class="rutinas__badge rutinas__badge--level">≈3500 kcal</span>
+                                <span class="rutinas__badge rutinas__badge--level">≈2300 kcal</span>
                             </div>
 
                             <p class="rutinas__card-text">
-                                Estructura de 3.500 kcal con el timing exacto de nutrientes
-                                para potenciar tu rendimiento.
+                                Estructura ideal para quienes entrenan y hacen ayuno.
                             </p>
 
                             <div class="rutinas__card-bottom">
@@ -225,32 +300,31 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/26xPzrr" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/11XtGsp" target="_blank" rel="noopener"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- GUIA REGULACION & ENFOQUE -->
+                    <!-- Dieta 3300kcal Mediodía -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/portada-regulacion-enfoque.jpg" alt="Rutina de 3 días para hombres"
+                            <img src="assets/img/portada-dieta-3300.jpg" alt="Dieta 3300kcal Mediodía"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
                         </div>
 
                         <div class="rutinas__card-body">
                             <div class="rutinas__card-badges">
                                 <span class="rutinas__badge rutinas__badge--icon">
-                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
+                                    <img src="assets/icons/biceps-flexed.svg" alt="" aria-hidden="true" width="16"
                                         height="16" loading="lazy" decoding="async">
-                                    Bio-Regulación
+                                    Entreno Mediodía
                                 </span>
-                                <span class="rutinas__badge rutinas__badge--level">Optimización</span>
+                                <span class="rutinas__badge rutinas__badge--level">≈3300 kcal</span>
                             </div>
 
                             <p class="rutinas__card-text">
-                                Protocolo de bio-regulación para dominar tu dopamina, optimizar tu descanso y reducir el
-                                estrés
+                                Estructura ideal para quienes entrenan a mitad del día y necesitan energía pura.
                             </p>
 
                             <div class="rutinas__card-bottom">
@@ -262,81 +336,7 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/2ZoabB8" target="_blank" rel="noopener"
-                                    class="rutinas__card-btn">COMPRAR →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- PROTOCOLO ACNE -->
-                    <article class="rutinas__card">
-                        <div class="rutinas__card-media">
-                            <img src="assets/img/portada-guia-acne.jpg" alt="Rutina de 3 días para hombres"
-                                class="rutinas__card-image" loading="lazy" decoding="async">
-                        </div>
-
-                        <div class="rutinas__card-body">
-                            <div class="rutinas__card-badges">
-                                <span class="rutinas__badge rutinas__badge--icon">
-                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">
-                                    Bio-Regulación
-                                </span>
-                                <span class="rutinas__badge rutinas__badge--level">Optimización</span>
-                            </div>
-
-                            <p class="rutinas__card-text">
-                                Abordaje integral del acné desde la salud hepática, intestinal y el equilibrio hormonal.
-                            </p>
-
-                            <div class="rutinas__card-bottom">
-                                <div class="rutinas__card-prices">
-                                    <p class="rutinas__card-price--before">Antes: $42.000</p>
-                                    <p class="rutinas__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
-                                    </p>
-                                </div>
-                                <a href="https://mpago.la/1sywVpq" target="_blank" rel="noopener"
-                                    class="rutinas__card-btn">COMPRAR →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- PROTOCOLO LECHE A1 & A2 -->
-                    <article class="rutinas__card">
-                        <div class="rutinas__card-media">
-                            <img src="assets/img/portada-protocolo-lacteos.jpg" alt="Protocolo Leche A1 vs A2"
-                                class="rutinas__card-image" loading="lazy" decoding="async">
-                            <!-- <div class="rutinas__card-label">Protocolo</div> -->
-                        </div>
-
-                        <div class="rutinas__card-body">
-                            <div class="rutinas__card-badges">
-                                <span class="rutinas__badge rutinas__badge--icon">
-                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">
-                                    Bio-Regulación
-                                </span>
-                                <span class="rutinas__badge rutinas__badge--level">Optimización</span>
-                            </div>
-
-                            <p class="rutinas__card-text">
-                                Recuperá tu capacidad de digerir lácteos sanando tu mucosa intestinal y eliminando la
-                                leche mutada.
-                            </p>
-
-                            <div class="rutinas__card-bottom">
-                                <div class="rutinas__card-prices">
-                                    <p class="rutinas__card-price--before">Antes: $42.000</p>
-                                    <p class="rutinas__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
-                                    </p>
-                                </div>
-                                <a href="https://mpago.la/1XuS9vG" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/1e2SKDU" target="_blank" rel="noopener"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
@@ -344,15 +344,13 @@
 
                 </div>
 
-                <!-- DOTS -->
                 <div class="dots-navigation">
                     <span class="dot active"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
+                    <span class="dot"></span>
                 </div>
-                <!-- end of DOTS -->
-
             </div>
         </section>
         <!-- end of PRODUCTOS DESTACADOS -->
@@ -587,6 +585,49 @@
                             </div>
                         </div>
                     </article>
+
+                    <!-- RUTINA DE LA SEMANA #1 -->
+                    <article class="rutinas__card">
+                        <div class="rutinas__card-media">
+                            <img src="assets/img/portada-rutina-semanal.jpg" alt="Rutina de 3 días para hombres"
+                                class="rutinas__card-image" loading="lazy" decoding="async">
+
+                            <!-- <span class="rutinas__card-label">
+                                <img src="assets/icons/clock-black.svg" alt="" aria-hidden="true" width="16" height="16"
+                                    loading="lazy" decoding="async">
+                                Disponible hasta el 25/01
+                            </span> -->
+                        </div>
+
+                        <div class="rutinas__card-body">
+                            <div class="rutinas__card-badges">
+                                <span class="rutinas__badge rutinas__badge--icon">
+                                    <img src="assets/icons/biceps-flexed.svg" alt="" aria-hidden="true" width="16"
+                                        height="16" loading="lazy" decoding="async">
+                                    PPL + Upper/Lower
+                                </span>
+                                <span class="rutinas__badge rutinas__badge--level">Avanzado</span>
+                            </div>
+
+                            <p class="rutinas__card-text">
+                                Optimizá tu frecuencia de entrenamiento y ganancia muscular.
+                            </p>
+
+                            <div class="rutinas__card-bottom">
+                                <div class="rutinas__card-prices">
+                                    <p class="rutinas__card-price--before">Antes: $42.000</p>
+                                    <p class="rutinas__card-price--now">
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
+                                            height="16" loading="lazy" decoding="async">
+                                        Ahora: $32.500
+                                    </p>
+                                </div>
+                                <a href="https://mpago.la/2C9ZVqJ" target="_blank" rel="noopener"
+                                    class="rutinas__card-btn">COMPRAR →</a>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
 
                 <!-- PANEL MUJER (misma estructura, podés cambiar textos/imagenes) -->
@@ -1013,6 +1054,43 @@
                         </div>
                     </article>
 
+                    <!-- DIETA DE LA SEMANA #1 -->
+                    <article class="dietas__card">
+                        <div class="dietas__card-media">
+                            <img src="assets/img/portada-dieta-semanal.jpg" alt="Rutina de 3 días para hombres"
+                                class="dietas__card-image" loading="lazy" decoding="async">
+                        </div>
+
+                        <div class="dietas__card-body">
+                            <div class="dietas__card-badges">
+                                <span class="dietas__badge dietas__badge--icon">
+                                    <img src="assets/icons/biceps-flexed.svg" alt="" aria-hidden="true" width="16"
+                                        height="16" loading="lazy" decoding="async">
+                                    Volumen
+                                </span>
+                                <span class="dietas__badge dietas__badge--level">≈3500 kcal</span>
+                            </div>
+
+                            <p class="dietas__card-text">
+                                Estructura de 3.500 kcal con el timing exacto de nutrientes
+                                para potenciar tu rendimiento.
+                            </p>
+
+                            <div class="dietas__card-bottom">
+                                <div class="dietas__card-prices">
+                                    <p class="dietas__card-price--before">Antes: $42.000</p>
+                                    <p class="dietas__card-price--now">
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
+                                            height="16" loading="lazy" decoding="async">
+                                        Ahora: $32.500
+                                    </p>
+                                </div>
+                                <a href="https://mpago.la/26xPzrr" target="_blank" rel="noopener"
+                                    class="dietas__card-btn">COMPRAR →</a>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
 
                 <!-- DOTS -->
@@ -1043,6 +1121,147 @@
             </div>
         </section>
         <!-- end of DIETAS -->
+
+        <!-- GUIAS -->
+
+        <!-- PRODUCTOS DESTACADOS -->
+        <section class="rutinas rutinas__destacados" id="guias" aria-labelledby="rutinas-title">
+            <div class="rutinas__container container rutinas__destacados">
+
+                <div class="rutinas__header">
+                    <h2 class="rutinas__title" id="rutinas-title">Guías disponibles</h2>
+                    <p class="rutinas__description">Elegí el plan que mejor se adapte a vos.</p>
+                </div>
+
+                <!-- PANEL HOMBRE -->
+                <div class="rutinas__cards rutinas__cards--hombre" id="panel-rutinas-hombre" role="tabpanel"
+                    aria-labelledby="tab-rutinas-hombre" aria-hidden="false">
+
+                    <!-- GUIA REGULACION & ENFOQUE -->
+                    <article class="rutinas__card">
+                        <div class="rutinas__card-media">
+                            <img src="assets/img/portada-regulacion-enfoque.jpg" alt="Rutina de 3 días para hombres"
+                                class="rutinas__card-image" loading="lazy" decoding="async">
+                        </div>
+
+                        <div class="rutinas__card-body">
+                            <div class="rutinas__card-badges">
+                                <span class="rutinas__badge rutinas__badge--icon">
+                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
+                                        height="16" loading="lazy" decoding="async">
+                                    Bio-Regulación
+                                </span>
+                                <span class="rutinas__badge rutinas__badge--level">Optimización</span>
+                            </div>
+
+                            <p class="rutinas__card-text">
+                                Protocolo de bio-regulación para dominar tu dopamina, optimizar tu descanso y reducir el
+                                estrés
+                            </p>
+
+                            <div class="rutinas__card-bottom">
+                                <div class="rutinas__card-prices">
+                                    <p class="rutinas__card-price--before">Antes: $42.000</p>
+                                    <p class="rutinas__card-price--now">
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
+                                            height="16" loading="lazy" decoding="async">
+                                        Ahora: $32.500
+                                    </p>
+                                </div>
+                                <a href="https://mpago.la/2ZoabB8" target="_blank" rel="noopener"
+                                    class="rutinas__card-btn">COMPRAR →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PROTOCOLO ACNE -->
+                    <article class="rutinas__card">
+                        <div class="rutinas__card-media">
+                            <img src="assets/img/portada-guia-acne.jpg" alt="Rutina de 3 días para hombres"
+                                class="rutinas__card-image" loading="lazy" decoding="async">
+                        </div>
+
+                        <div class="rutinas__card-body">
+                            <div class="rutinas__card-badges">
+                                <span class="rutinas__badge rutinas__badge--icon">
+                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
+                                        height="16" loading="lazy" decoding="async">
+                                    Bio-Regulación
+                                </span>
+                                <span class="rutinas__badge rutinas__badge--level">Optimización</span>
+                            </div>
+
+                            <p class="rutinas__card-text">
+                                Abordaje integral del acné desde la salud hepática, intestinal y el equilibrio hormonal.
+                            </p>
+
+                            <div class="rutinas__card-bottom">
+                                <div class="rutinas__card-prices">
+                                    <p class="rutinas__card-price--before">Antes: $42.000</p>
+                                    <p class="rutinas__card-price--now">
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
+                                            height="16" loading="lazy" decoding="async">
+                                        Ahora: $32.500
+                                    </p>
+                                </div>
+                                <a href="https://mpago.la/1sywVpq" target="_blank" rel="noopener"
+                                    class="rutinas__card-btn">COMPRAR →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- PROTOCOLO LECHE A1 & A2 -->
+                    <article class="rutinas__card">
+                        <div class="rutinas__card-media">
+                            <img src="assets/img/portada-protocolo-lacteos.jpg" alt="Protocolo Leche A1 vs A2"
+                                class="rutinas__card-image" loading="lazy" decoding="async">
+                            <!-- <div class="rutinas__card-label">Protocolo</div> -->
+                        </div>
+
+                        <div class="rutinas__card-body">
+                            <div class="rutinas__card-badges">
+                                <span class="rutinas__badge rutinas__badge--icon">
+                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
+                                        height="16" loading="lazy" decoding="async">
+                                    Bio-Regulación
+                                </span>
+                                <span class="rutinas__badge rutinas__badge--level">Optimización</span>
+                            </div>
+
+                            <p class="rutinas__card-text">
+                                Recuperá tu capacidad de digerir lácteos sanando tu mucosa intestinal y eliminando la
+                                leche mutada.
+                            </p>
+
+                            <div class="rutinas__card-bottom">
+                                <div class="rutinas__card-prices">
+                                    <p class="rutinas__card-price--before">Antes: $42.000</p>
+                                    <p class="rutinas__card-price--now">
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
+                                            height="16" loading="lazy" decoding="async">
+                                        Ahora: $32.500
+                                    </p>
+                                </div>
+                                <a href="https://mpago.la/1XuS9vG" target="_blank" rel="noopener"
+                                    class="rutinas__card-btn">COMPRAR →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- DOTS -->
+                <div class="dots-navigation">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <!-- end of DOTS -->
+
+            </div>
+        </section>
+        <!-- end of PRODUCTOS DESTACADOS -->
 
 
 
