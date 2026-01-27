@@ -56,6 +56,24 @@
 
 <body id="inicio">
 
+    <!-- ALERTA -->
+    <div id="custom-popup" class="popup-overlay">
+        <div class="popup-card">
+            <div class="popup-header">
+                <div class="icon-circle">
+                    <span>!</span>
+                </div>
+            </div>
+            <div class="popup-body">
+                <h2>IMPORTANTE</h2>
+                <p>Una vez realizado el pago, <strong>NO CIERRES</strong> la aplicación de Mercado Pago.
+                    Hacé clic en el botón <strong>'Ir al inicio'</strong> para recibir tu PDF correctamente.</p>
+                <button onclick="closePopup()" class="btn-close">ENTENDIDO</button>
+            </div>
+        </div>
+    </div>
+    <!-- end of ALERTA -->
+
     <!-- WHATSAPP BUTTON -->
     <a href="https://wa.me/5491162304028?text=%C2%A1Hola%20Marton!%20Estoy%20interesado%20en%20tus%20asesor%C3%ADas%201%20a%201,%20%C2%BFme%20pas%C3%A1s%20m%C3%A1s%20info%3F"
         class="whatsapp-button" aria-label="Escribime por WhatsApp – Asesorías 1 a 1" target="_blank"
@@ -1543,6 +1561,18 @@
 
     <!-- JS -->
     <script src="./js/app.js" defer></script>
+
+    <script>
+        // Mostrarlo apenas carga la página
+        window.onload = function () {
+            document.getElementById('custom-popup').style.display = 'flex';
+        };
+
+        // Función para cerrar
+        function closePopup() {
+            document.getElementById('custom-popup').style.display = 'none';
+        }
+    </script>
 
 </body>
 
