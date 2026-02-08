@@ -1751,6 +1751,57 @@ body.no-scroll {
 
 
 
+/* SECCIÓN CONSULTAS - INTEGRADA */
+.consultas {
+    padding-block: calc(var(--scroll-padding)/2);
+    background-color: var(--yellow-color);
+    text-align: center;
+}
+
+.consultas__title {
+    font-family: 'Humane';
+    color: var(--dark-color);
+    font-size: 4rem;
+    /* font-weight: 600; */
+    text-transform: uppercase;
+}
+
+.consultas__text {
+    font-family: 'Outfit';
+    /* Tu fuente de cuerpo */
+    color: var(--dark-color);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.consultas__btn {
+    font-family: 'Humane';
+    font-size: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--dark-color);
+    color: var(--yellow-color);
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.consultas__btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+.consultas__btn img {
+    width: 2rem;
+    height: 2rem;
+}
+
+
+
 /* TESTIMONIOS */
 .testimonios {
     padding-block-start: var(--scroll-padding);
@@ -2583,55 +2634,6 @@ body.no-scroll {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* SECCIÓN CONSULTAS - INTEGRADA */
-.consultas {
-    padding-block: calc(var(--scroll-padding)/2);
-    background-color: var(--yellow-color);
-    text-align: center;
-}
-
-.consultas__title {
-    font-family: 'Humane';
-    color: var(--dark-color);
-    font-size: 4rem;
-    /* font-weight: 600; */
-    text-transform: uppercase;
-}
-
-.consultas__text {
-    font-family: 'Outfit';
-    /* Tu fuente de cuerpo */
-    color: var(--dark-color);
-    max-width: 700px;
-    margin: 0 auto 2rem;
-    line-height: 1.6;
-    font-size: 1.1rem;
-}
-
-.consultas__btn {
-    font-family: 'Humane';
-    font-size: 2.5rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background-color: var(--dark-color);
-    color: var(--yellow-color);
-    padding: 0.8rem 2rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.consultas__btn:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.1);
-}
-
-.consultas__btn img {
-    width: 2rem;
-    height: 2rem;
 }
 
 @media (min-width: 768px) {
