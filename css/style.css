@@ -278,7 +278,7 @@ body.no-scroll {
 /* end of WHATSAPP BUTTON */
 
 /* DOTS */
-/* Contenedor de navegación por puntos */
+
 .dots-navigation {
     display: flex;
     justify-content: center;
@@ -314,7 +314,10 @@ body.no-scroll {
     }
 }
 
+/* end of DOTS */
+
 /* NAV */
+
 .nav {
 
     background-color: var(--dark-color);
@@ -667,8 +670,374 @@ body.no-scroll {
 
 /* end of HEADER */
 
+/* NOVEDADES */
+
+.novedades {
+    padding-block: var(--scroll-padding);
+    background-color: var(--dark-soft-color);
+
+    /* perf: render diferido si no está a la vista */
+    content-visibility: auto;
+    contain-intrinsic-size: 1200px;
+
+    & .novedades__container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 1440px;
+
+        /* HEADER */
+        & .novedades__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+
+            & .novedades__title {
+                font-family: 'Humane';
+                font-size: 4rem;
+                font-weight: 600;
+                color: var(--white-color);
+                text-transform: uppercase;
+                border-bottom: 5px solid var(--yellow-color);
+                text-wrap: balance;
+            }
+
+            & .novedades__description {
+                font-family: 'Outfit';
+                font-size: 1rem;
+                color: var(--white-color);
+                text-wrap: pretty;
+            }
+
+            & .novedades__selector {
+                display: flex;
+                padding: .5rem;
+                align-items: center;
+                justify-content: center;
+                border-radius: 999px;
+                border: 2px solid var(--yellow-color);
+                background-color: var(--dark-soft-color);
+                max-width: 320px;
+                gap: .25rem;
+
+                & .novedades__selector-btn {
+                    font-family: 'Outfit';
+                    font-size: 1.125rem;
+                    font-weight: 500;
+                    width: 160px;
+                    gap: .5rem;
+                    border-radius: 999px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: .5rem 1.5rem;
+                    border: none;
+                    background-color: transparent;
+                    color: var(--yellow-color);
+                    cursor: pointer;
+                    transition: background-color .25s ease, color .25s ease, transform .12s ease;
+
+                    & img {
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                & .novedades__selector-btn--active,
+                & .novedades__selector-btn[aria-selected="true"] {
+                    background-color: var(--yellow-color);
+                    color: var(--dark-color);
+                }
+
+                & .novedades__selector-btn:focus-visible {
+                    outline: 2px solid var(--yellow-color);
+                    outline-offset: 3px;
+                }
+            }
+        }
+
+        /* LISTA DE CARDS (mobile first: carrusel horizontal) */
+        & .novedades__cards {
+
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 1.5rem;
+            align-items: stretch;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-inline: contain;
+            padding-inline: .25rem;
+
+            & .novedades__card {
+                flex: 0 0 100%;
+                /* 1 card por “pantalla” en mobile */
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+                /* Mantenemos limpio el diseño */
+            }
+
+        }
+
+        /* CARD */
+        & .novedades__card {
+            display: flex;
+            flex-direction: column;
+            background-color: #050505;
+            border: 2px solid var(--yellow-color);
+            overflow: hidden;
+        }
+
+        /* Imagen de portada (ya trae el texto encima) */
+        & .novedades__card-media {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            /* altura fija de la imagen */
+            overflow: hidden;
+            background: #111;
+        }
+
+        & .novedades__card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Label amarillo opcional (Bestseller) */
+        & .novedades__card-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--yellow-color);
+            color: #000;
+            font-family: 'Outfit';
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.25rem 0.9rem;
+            border-radius: 999px;
+            display: flex;
+            gap: .5rem;
+        }
+
+        /* Cuerpo de la card */
+        & .novedades__card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1.2rem 1.4rem;
+            background-color: #111;
+        }
+
+        /* Badges superiores */
+        & .novedades__card-badges {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: .75rem;
+            flex-wrap: nowrap;
+        }
+
+        & .novedades__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-family: 'Outfit';
+        }
+
+        & .novedades__badge--icon {
+            color: var(--yellow-color);
+        }
+
+        & .novedades__badge--level {
+            background-color: var(--yellow-color);
+            color: #000;
+            padding: 0.4rem 0.8rem;
+            border-radius: 10px;
+        }
+
+        & .novedades__badge img {
+            width: 16px;
+            height: 16px;
+            display: block;
+        }
+
+        /* Texto descriptivo */
+        & .novedades__card-text {
+            font-family: 'Outfit';
+            font-size: 0.875rem;
+            color: var(--white-color);
+            text-wrap: pretty;
+        }
+
+        /* Pie de card: precios + botón alineados abajo */
+        & .novedades__card-bottom {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        & .novedades__card-prices {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            font-size: 0.875rem;
+            font-family: 'Outfit';
+            width: 100%;
+        }
+
+        & .novedades__card-price--before {
+            text-decoration: line-through;
+            color: #aaaaaa;
+        }
+
+        & .novedades__card-price--now {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--yellow-color);
+            font-weight: 700;
+            font-size: 1rem;
+            text-wrap: nowrap;
+
+            & img {
+                width: 16px;
+                height: 16px;
+                display: block;
+            }
+        }
+
+        /* Botón COMPRAR */
+        & .novedades__card-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0.4rem 0.8rem;
+            background-color: var(--yellow-color);
+            color: #000;
+            font-family: 'Humane';
+            font-size: 2.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: filter .18s ease, transform .12s ease;
+        }
+
+        & .novedades__card-btn:hover {
+            filter: brightness(1.05);
+            transform: translateY(-1px);
+        }
+
+        & .novedades__card-btn:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 3px;
+        }
+
+        /* Info inferior */
+        & .novedades__info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+
+            & .novedades__info-text {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: .5rem;
+                font-family: 'Outfit';
+                font-size: .875rem;
+                color: var(--white-color);
+
+                & img {
+                    width: 16px;
+                    height: 16px;
+                    display: block;
+                }
+
+                & a {
+                    color: var(--yellow-color);
+                }
+
+                & a:focus-visible {
+                    outline: 2px solid currentColor;
+                    outline-offset: 3px;
+                }
+            }
+        }
+    }
+
+    /* RESPONSIVE */
+
+    /* Tablet: siguen scrolleables en X, pero 50% de ancho */
+    @media (min-width: 768px) {
+        & .novedades__container {
+
+            & .novedades__cards {
+                gap: 1.5rem;
+                /* seguimos con nowrap + overflow-x de mobile */
+            }
+
+            & .novedades__cards .novedades__card {
+                flex: 0 0 calc((100% - 1.5rem) / 2);
+                /* ~50% */
+            }
+
+            & .novedades__header .novedades__title {
+                font-size: 5rem;
+            }
+
+            & .novedades__info .novedades__info-text {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    /* Desktop grande: grilla de 4 columnas, sin scroll horizontal */
+    @media (min-width: 1200px) {
+        & .novedades__container {
+            gap: 2rem;
+
+            & .novedades__cards {
+                flex-wrap: wrap;
+                overflow-x: visible;
+                scroll-snap-type: none;
+                padding-inline: 0;
+            }
+
+            /* 4 cards por fila */
+            & .novedades__cards .novedades__card {
+                flex: 0 0 calc((100% - 3 * 1.5rem) / 4);
+            }
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        & .novedades__card-btn {
+            transition: none !important;
+        }
+    }
+}
+
+/* end of NOVEDADES */
 
 /* ABOUT */
+
 .about {
     padding-block: var(--scroll-padding);
     background-color: var(--light-color);
@@ -759,16 +1128,16 @@ body.no-scroll {
             }
         }
     }
-}
 
-@media (min-width: 1200px) {
-    & .about__container {
-        & .about__image-wrapper {
-            align-items: center;
-            justify-content: flex-end;
+    @media (min-width: 1200px) {
+        & .about__container {
+            & .about__image-wrapper {
+                align-items: center;
+                justify-content: flex-end;
 
-            & img {
-                max-height: 700px;
+                & img {
+                    max-height: 700px;
+                }
             }
         }
     }
@@ -777,6 +1146,7 @@ body.no-scroll {
 /* end of ABOUT */
 
 /* RUTINAS */
+
 .rutinas {
     padding-block: var(--scroll-padding);
     background-color: var(--dark-soft-color);
@@ -1142,6 +1512,7 @@ body.no-scroll {
 /* end of RUTINAS */
 
 /* ASESORIAS */
+
 .asesorias {
     padding-block: var(--scroll-padding);
     background-color: var(--light-color);
@@ -1385,6 +1756,7 @@ body.no-scroll {
 /* end of ASESORIAS */
 
 /* DIETAS */
+
 .dietas {
     padding-block: var(--scroll-padding);
     background-color: var(--dark-soft-color);
@@ -1749,60 +2121,314 @@ body.no-scroll {
 
 /* end of DIETAS */
 
+/* GUIAS */
 
+.guias {
+    padding-block: var(--scroll-padding);
+    background-color: var(--dark-soft-color);
 
-/* SECCIÓN CONSULTAS - INTEGRADA */
+    /* perf: render diferido si no está a la vista */
+    content-visibility: auto;
+    contain-intrinsic-size: 1200px;
+
+    & .guias__container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 1440px;
+
+        /* HEADER */
+        & .guias__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+
+            & .guias__title {
+                font-family: 'Humane';
+                font-size: 4rem;
+                font-weight: 600;
+                color: var(--white-color);
+                text-transform: uppercase;
+                border-bottom: 5px solid var(--yellow-color);
+                text-wrap: balance;
+            }
+
+            & .guias__description {
+                font-family: 'Outfit';
+                font-size: 1rem;
+                color: var(--white-color);
+                text-wrap: pretty;
+            }
+        }
+
+        /* LISTA DE CARDS (mobile first: carrusel horizontal) */
+        & .guias__cards {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 1.5rem;
+            align-items: stretch;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-inline: contain;
+            padding-inline: .25rem;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            & .guias__card {
+                flex: 0 0 100%;
+                /* 1 card por “pantalla” en mobile */
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+            }
+        }
+
+        /* CARD */
+        & .guias__card {
+            display: flex;
+            flex-direction: column;
+            background-color: #050505;
+            border: 2px solid var(--yellow-color);
+            overflow: hidden;
+        }
+
+        /* Imagen de portada */
+        & .guias__card-media {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        & .guias__card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Label amarillo opcional */
+        & .guias__card-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--yellow-color);
+            color: #000;
+            font-family: 'Outfit';
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.25rem 0.9rem;
+            border-radius: 999px;
+            z-index: 2;
+        }
+
+        /* Cuerpo de la card */
+        & .guias__card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1.2rem 1.4rem;
+            background-color: #111;
+        }
+
+        /* Badges superiores */
+        & .guias__card-badges {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: .75rem;
+            flex-wrap: nowrap;
+        }
+
+        & .guias__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-family: 'Outfit';
+        }
+
+        & .guias__badge--icon {
+            color: var(--yellow-color);
+        }
+
+        & .guias__badge--level {
+            background-color: var(--yellow-color);
+            color: #000;
+            padding: 0.4rem 0.8rem;
+            border-radius: 10px;
+        }
+
+        & .guias__badge img {
+            width: 16px;
+            height: 16px;
+            display: block;
+        }
+
+        /* Texto descriptivo */
+        & .guias__card-text {
+            font-family: 'Outfit';
+            font-size: 0.875rem;
+            color: var(--white-color);
+        }
+
+        /* Pie de card: precios + botón */
+        & .guias__card-bottom {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        & .guias__card-prices {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            font-size: 0.875rem;
+            font-family: 'Outfit';
+            width: 100%;
+        }
+
+        & .guias__card-price--before {
+            text-decoration: line-through;
+            color: #aaaaaa;
+        }
+
+        & .guias__card-price--now {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--yellow-color);
+            font-weight: 700;
+            font-size: 1rem;
+            text-wrap: nowrap;
+
+            & img {
+                width: 16px;
+                height: 16px;
+                display: block;
+            }
+        }
+
+        /* Botón COMPRAR */
+        & .guias__card-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0.4rem 0.8rem;
+            background-color: var(--yellow-color);
+            color: #000;
+            font-family: 'Humane';
+            font-size: 2.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: filter .18s ease, transform .12s ease;
+        }
+
+        & .guias__card-btn:hover {
+            filter: brightness(1.05);
+            transform: translateY(-1px);
+        }
+    }
+
+    /* RESPONSIVE */
+
+    /* Tablet: 2 columnas */
+    @media (min-width: 768px) {
+        & .guias__container {
+            & .guias__cards .guias__card {
+                flex: 0 0 calc((100% - 1.5rem) / 2);
+            }
+
+            & .guias__header .guias__title {
+                font-size: 5rem;
+            }
+        }
+    }
+
+    /* Desktop grande: 4 columnas */
+    @media (min-width: 1200px) {
+        & .guias__container {
+            & .guias__cards {
+                flex-wrap: wrap;
+                overflow-x: visible;
+                scroll-snap-type: none;
+                padding-inline: 0;
+            }
+
+            & .guias__cards .guias__card {
+                flex: 0 0 calc((100% - 3 * 1.5rem) / 4);
+            }
+        }
+    }
+}
+
+/* end of GUIAS */
+
+/* SECCIÓN CONSULTAS */
+
 .consultas {
     padding-block: calc(var(--scroll-padding)/2);
     background-color: var(--yellow-color);
     text-align: center;
+
+    .consultas__title {
+        font-family: 'Humane';
+        color: var(--dark-color);
+        font-size: 4rem;
+        /* font-weight: 600; */
+        text-transform: uppercase;
+    }
+
+    .consultas__text {
+        font-family: 'Outfit';
+        /* Tu fuente de cuerpo */
+        color: var(--dark-color);
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+        font-size: 1.1rem;
+    }
+
+    .consultas__btn {
+        font-family: 'Humane';
+        font-size: 2.5rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background-color: var(--dark-color);
+        color: var(--yellow-color);
+        padding: 0.8rem 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .consultas__btn:hover {
+        transform: translateY(-3px);
+        filter: brightness(1.1);
+    }
+
+    .consultas__btn img {
+        width: 2rem;
+        height: 2rem;
+    }
 }
 
-.consultas__title {
-    font-family: 'Humane';
-    color: var(--dark-color);
-    font-size: 4rem;
-    /* font-weight: 600; */
-    text-transform: uppercase;
-}
-
-.consultas__text {
-    font-family: 'Outfit';
-    /* Tu fuente de cuerpo */
-    color: var(--dark-color);
-    max-width: 700px;
-    margin: 0 auto 2rem;
-    line-height: 1.6;
-    font-size: 1.1rem;
-}
-
-.consultas__btn {
-    font-family: 'Humane';
-    font-size: 2.5rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background-color: var(--dark-color);
-    color: var(--yellow-color);
-    padding: 0.8rem 2rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.consultas__btn:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.1);
-}
-
-.consultas__btn img {
-    width: 2rem;
-    height: 2rem;
-}
-
-
+/* end of CONSULTAS */
 
 /* TESTIMONIOS */
+
 .testimonios {
     padding-block-start: var(--scroll-padding);
     background-color: var(--dark-soft-color);
@@ -1996,6 +2622,7 @@ body.no-scroll {
 }
 
 /* BANNER ENTRENO */
+
 .entreno-banner {
     padding-block: 2rem;
 
@@ -2158,6 +2785,7 @@ body.no-scroll {
 
 
 /* FAQ */
+
 .faq {
     padding-block: var(--scroll-padding);
     background-color: var(--dark-soft-color);
@@ -2272,6 +2900,7 @@ body.no-scroll {
 
 /* CTA FINAL */
 .cta-final {
+
     padding-block: var(--scroll-padding);
     background-color: var(--dark-soft-color);
 
@@ -2361,6 +2990,7 @@ body.no-scroll {
 /* end of CTA FINAL */
 
 /* FOOTER */
+
 .footer {
     background-color: var(--dark-color);
 
