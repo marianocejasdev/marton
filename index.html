@@ -52,6 +52,25 @@
     <!-- Google Search -->
     <meta name="google-site-verification" content="ULZcZw3kH118jiinTJGIpK3ygAS3MOcOn0HzQQZHqpk" />
 
+    <!-- Pixel -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '898671773158539');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=898671773158539&ev=PageView&noscript=1" /></noscript>
+
 </head>
 
 <body id="inicio">
@@ -77,7 +96,7 @@
     <!-- WHATSAPP BUTTON -->
     <a href="https://wa.me/5491162304028?text=%C2%A1Hola%20Marton!%20Estoy%20interesado%20en%20tus%20asesor%C3%ADas%201%20a%201,%20%C2%BFme%20pas%C3%A1s%20m%C3%A1s%20info%3F"
         class="whatsapp-button" aria-label="Escribime por WhatsApp – Asesorías 1 a 1" target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer" onclick="fbq('track', 'Contact');">
         <img src="./assets/icons/whatsapp-brands.svg" alt="" aria-hidden="true">
     </a>
     <!-- end WHATSAPP BUTTON -->
@@ -161,7 +180,7 @@
     <!-- MAIN -->
     <main>
 
-        <!-- PRODUCTOS DESTACADOS -->
+        <!-- PRODUCTOS DESTACADOS / NOVEDADES -->
         <section class="novedades" aria-labelledby="novedades-title">
             <div class="novedades__container container">
 
@@ -185,18 +204,21 @@
                                 <span class="novedades__badge novedades__badge--level">Avanzado</span>
                             </div>
                             <p class="novedades__card-text">
-                                Enfoque total en glúteo y aductores con técnicas de retención isométrica y carga
-                                progresiva. Incluye bloques específicos de tren superior y femoral.
+                                Plan de alta intensidad con enfoque total en glúteo y aductores. Incluye técnicas de
+                                retención isométrica y carga progresiva.
                             </p>
                             <div class="novedades__card-bottom">
                                 <div class="novedades__card-prices">
                                     <p class="novedades__card-price--before">Antes: $42.000</p>
                                     <p class="novedades__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" width="16" height="16"> Ahora: $32.000
+                                        <img src="assets/icons/flame.svg" alt="" width="16" height="16"> Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/1Jm1in5" target="_blank" rel="noopener"
-                                    class="novedades__card-btn">COMPRAR →</a>
+                                <a href="https://mpago.la/1Jm1in5" target="_blank" rel="noopener noreferrer"
+                                    class="novedades__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Femenina Avanzada - Enfocada en Glúteos & Aductores', value: 32500, currency: 'ARS'});">
+                                    COMPRAR →
+                                </a>
                             </div>
                         </div>
                     </article>
@@ -209,23 +231,26 @@
                         <div class="novedades__card-body">
                             <div class="novedades__card-badges">
                                 <span class="novedades__badge novedades__badge--icon">
-                                    <img src="assets/icons/flame-white.svg" alt="" width="16" height="16">Glúteos
+                                    <img src="assets/icons/flame-white.svg" alt="" width="16" height="16">Aislado
                                 </span>
                                 <span class="novedades__badge novedades__badge--level">Pro</span>
                             </div>
                             <p class="novedades__card-text">
-                                Rutina específica de alta densidad para glúteos. Utiliza series piramidales y descansos
-                                mínimos (20-30s) para una congestión muscular extrema.
+                                Rutina de alta densidad enfocada exclusivamente en glúteos. Utiliza series piramidales y
+                                descansos mínimos para máxima congestión.
                             </p>
                             <div class="novedades__card-bottom">
                                 <div class="novedades__card-prices">
                                     <p class="novedades__card-price--before">Antes: $42.000</p>
                                     <p class="novedades__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" width="16" height="16"> Ahora: $32.000
+                                        <img src="assets/icons/flame.svg" alt="" width="16" height="16"> Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/1DrpJis" target="_blank" rel="noopener"
-                                    class="novedades__card-btn">COMPRAR →</a>
+                                <a href="https://mpago.la/1DrpJis" target="_blank" rel="noopener noreferrer"
+                                    class="novedades__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Femenina - Glúteo Aislado', value: 32500, currency: 'ARS'});">
+                                    COMPRAR →
+                                </a>
                             </div>
                         </div>
                     </article>
@@ -243,18 +268,21 @@
                                 <span class="novedades__badge novedades__badge--level">Avanzado</span>
                             </div>
                             <p class="novedades__card-text">
-                                Nivel avanzado #2: Volumen de entrenamiento optimizado con series descendentes, Sissy
-                                Squats y un día masivo de tren superior.
+                                Nivel avanzado #2: Volumen optimizado con series descendentes, Sissy Squats y un bloque
+                                masivo de tren superior.
                             </p>
                             <div class="novedades__card-bottom">
                                 <div class="novedades__card-prices">
                                     <p class="novedades__card-price--before">Antes: $42.000</p>
                                     <p class="novedades__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" width="16" height="16"> Ahora: $32.000
+                                        <img src="assets/icons/flame.svg" alt="" width="16" height="16"> Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/2qqJzdf" target="_blank" rel="noopener"
-                                    class="novedades__card-btn">COMPRAR →</a>
+                                <a href="https://mpago.la/2qqJzdf" target="_blank" rel="noopener noreferrer"
+                                    class="novedades__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Femenina Avanzada - Febrero', value: 32500, currency: 'ARS'});">
+                                    COMPRAR →
+                                </a>
                             </div>
                         </div>
                     </article>
@@ -272,18 +300,21 @@
                                 <span class="novedades__badge novedades__badge--level">Intermedio/Avanzado</span>
                             </div>
                             <p class="novedades__card-text">
-                                Plan completo de 6 días para una división muscular total. Incluye superseries de
-                                prensa/estocadas y bloques específicos de potencia.
+                                Plan completo para división muscular total. Incluye superseries de prensa/estocadas y
+                                frecuencia óptima.
                             </p>
                             <div class="novedades__card-bottom">
                                 <div class="novedades__card-prices">
                                     <p class="novedades__card-price--before">Antes: $42.000</p>
                                     <p class="novedades__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" width="16" height="16"> Ahora: $32.000
+                                        <img src="assets/icons/flame.svg" alt="" width="16" height="16"> Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/1D9MVP7" target="_blank" rel="noopener"
-                                    class="novedades__card-btn">COMPRAR →</a>
+                                <a href="https://mpago.la/1D9MVP7" target="_blank" rel="noopener noreferrer"
+                                    class="novedades__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Femenina - 6 Días', value: 32500, currency: 'ARS'});">
+                                    COMPRAR →
+                                </a>
                             </div>
                         </div>
                     </article>
@@ -301,31 +332,29 @@
                                 <span class="novedades__badge novedades__badge--level">Intermedio</span>
                             </div>
                             <p class="novedades__card-text">
-                                Diseñada para maximizar resultados en sesiones cortas. División inteligente:
-                                Cuádriceps/Glúteo, Tren Superior y Femorales/Glúteo.
+                                Diseñada para maximizar resultados en sesiones cortas. División inteligente de tres días
+                                para optimizar tu tiempo.
                             </p>
                             <div class="novedades__card-bottom">
                                 <div class="novedades__card-prices">
                                     <p class="novedades__card-price--before">Antes: $42.000</p>
                                     <p class="novedades__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" width="16" height="16"> Ahora: $32.000
+                                        <img src="assets/icons/flame.svg" alt="" width="16" height="16"> Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/1bp9tmj" target="_blank" rel="noopener"
-                                    class="novedades__card-btn">COMPRAR →</a>
+                                <a href="https://mpago.la/1bp9tmj" target="_blank" rel="noopener noreferrer"
+                                    class="novedades__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Femenina - 3 Días', value: 32500, currency: 'ARS'});">
+                                    COMPRAR →
+                                </a>
                             </div>
                         </div>
                     </article>
 
                 </div>
-
-                <div class="novedades__dots dots-navigation">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
             </div>
         </section>
+        <!-- end of PRODUCTOS DESTACADOS / NOVEDADES -->
 
         <!-- SOBRE MI -->
         <section class="about" id="sobre-mi" aria-labelledby="about-title">
@@ -388,7 +417,6 @@
                     <h2 class="rutinas__title" id="rutinas-title">Rutinas disponibles</h2>
                     <p class="rutinas__description">Elegí el plan que mejor se adapte a vos.</p>
 
-                    <!-- Tablist accesible -->
                     <div class="rutinas__selector" role="tablist" aria-label="Selector de rutina">
                         <button class="rutinas__selector-btn" role="tab" aria-selected="false"
                             aria-controls="panel-rutinas-mujer" id="tab-rutinas-mujer" data-target="mujer"
@@ -409,11 +437,9 @@
                     </div>
                 </div>
 
-                <!-- PANEL HOMBRE -->
                 <div class="rutinas__cards rutinas__cards--hombre" id="panel-rutinas-hombre" role="tabpanel"
                     aria-labelledby="tab-rutinas-hombre" aria-hidden="false">
 
-                    <!-- 3 DÍAS -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
                             <img src="assets/img/rutina-3-dias.jpg" alt="Rutina de 3 días para hombres"
@@ -444,16 +470,16 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/2wAG6p6" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/2wAG6p6" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Hombre 3 Días', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- 4 DÍAS -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/rutina-4-dias.jpg" alt="Rutina de 3 días para hombres"
+                            <img src="assets/img/rutina-4-dias.jpg" alt="Rutina de 4 días para hombres"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
                         </div>
 
@@ -480,16 +506,16 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/18NnS12" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/18NnS12" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Hombre 4 Días', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- 5 DÍAS -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/rutina-5-dias.jpg" alt="Rutina de 3 días para hombres"
+                            <img src="assets/img/rutina-5-dias.jpg" alt="Rutina de 5 días para hombres"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
                         </div>
 
@@ -516,16 +542,16 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/1iZEVxS" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/1iZEVxS" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Hombre 5 Días', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- 6 DÍAS -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/rutina-6-dias.jpg" alt="Rutina de 3 días para hombres"
+                            <img src="assets/img/rutina-6-dias.jpg" alt="Rutina de 6 días para hombres"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
                         </div>
 
@@ -552,23 +578,17 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/2onhumk" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/2onhumk" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Hombre 6 Días', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- RUTINA DE LA SEMANA #1 -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/portada-rutina-ppl.jpg" alt="Rutina de 3 días para hombres"
+                            <img src="assets/img/portada-rutina-ppl.jpg" alt="Rutina PPL para hombres"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
-
-                            <!-- <span class="rutinas__card-label">
-                                <img src="assets/icons/clock-black.svg" alt="" aria-hidden="true" width="16" height="16"
-                                    loading="lazy" decoding="async">
-                                Disponible hasta el 25/01
-                            </span> -->
                         </div>
 
                         <div class="rutinas__card-body">
@@ -594,25 +614,18 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/2C9ZVqJ" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/2C9ZVqJ" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina PPL Hombre', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- RUTINAS 4 DIAS - TREN POSTERIOR Y DELANTERO -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
                             <img src="assets/img/rutina-4-dias-anterior-delantero.jpg"
                                 alt="Rutina 4 días Tren Posterior y Delantero" class="rutinas__card-image"
                                 loading="lazy" decoding="async">
-
-                            <!-- <span class="rutinas__card-label">
-                                <img src="assets/icons/clock-black.svg" alt="" aria-hidden="true" width="16" height="16"
-                                    loading="lazy" decoding="async">
-                                Disponible hasta el 01/02
-                            </span> -->
-
                         </div>
 
                         <div class="rutinas__card-body">
@@ -636,23 +649,17 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/2F37yCj" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/2F37yCj" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Tren Posterior/Delantero', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Rutina 6 días Bro Split -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
                             <img src="assets/img/rutina-6-dias-bro-split.jpg" alt="Rutina 6 días Bro Split"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
-
-                            <!-- <span class="rutinas__card-label">
-                                <img src="assets/icons/clock-black.svg" alt="" aria-hidden="true" width="16" height="16"
-                                    loading="lazy" decoding="async">
-                                Disponible hasta el 01/02
-                            </span> -->
                         </div>
 
                         <div class="rutinas__card-body">
@@ -678,7 +685,8 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/1U91d85" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/1U91d85" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Bro Split', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
@@ -686,14 +694,12 @@
 
                 </div>
 
-                <!-- PANEL MUJER (misma estructura, podés cambiar textos/imagenes) -->
                 <div class="rutinas__cards rutinas__cards--mujer" id="panel-rutinas-mujer" role="tabpanel"
                     aria-labelledby="tab-rutinas-mujer" aria-hidden="true">
 
-                    <!-- RUTINA DE 3 DIAS - MUJER -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/rutina-mujer-3-dias.jpg" alt="Rutina de 3 días para hombres"
+                            <img src="assets/img/rutina-mujer-3-dias.jpg" alt="Rutina de 3 días para mujeres"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
                         </div>
 
@@ -720,16 +726,16 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/27HStHq" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/27HStHq" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Mujer 3 Días', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- RUTINA NIVEL INICAL - MUJER -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/rutina-mujer-inicial.jpg" alt="Rutina de 3 días para hombres"
+                            <img src="assets/img/rutina-mujer-inicial.jpg" alt="Rutina inicial para mujeres"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
                             <div class="rutinas__card-label">Nuevo</div>
                         </div>
@@ -758,16 +764,16 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/2jDVgEA" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/2jDVgEA" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Mujer Inicial', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- RUTINA NIVEL INTERMEDIO - MUJER -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/rutina-mujer-intermedio.jpg" alt="Rutina de 3 días para hombres"
+                            <img src="assets/img/rutina-mujer-intermedio.jpg" alt="Rutina intermedia para mujeres"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
                         </div>
 
@@ -794,16 +800,16 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/1rLtLVk" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/1rLtLVk" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Mujer Intermedio', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- RUTINA NIVEL AVANZADO - MUJER -->
                     <article class="rutinas__card">
                         <div class="rutinas__card-media">
-                            <img src="assets/img/rutina-mujer-avanzado.jpg" alt="Rutina de 3 días para hombres"
+                            <img src="assets/img/rutina-mujer-avanzado.jpg" alt="Rutina avanzada para mujeres"
                                 class="rutinas__card-image" loading="lazy" decoding="async">
                         </div>
 
@@ -830,7 +836,8 @@
                                         Ahora: $32.500
                                     </p>
                                 </div>
-                                <a href="https://mpago.la/2E8UcUx" target="_blank" rel="noopener"
+                                <a href="https://mpago.la/2E8UcUx" target="_blank" rel="noopener noreferrer"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Rutina Mujer Avanzado', value: 32500.00, currency: 'ARS'});"
                                     class="rutinas__card-btn">COMPRAR →</a>
                             </div>
                         </div>
@@ -838,14 +845,13 @@
 
                 </div>
 
-                <!-- DOTS -->
                 <div class="dots-navigation">
                     <span class="dot active"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
+                    <span class="dot"></span>
                 </div>
-                <!-- end of DOTS -->
 
                 <div class="rutinas__info">
                     <p class="rutinas__info-text">
@@ -914,7 +920,8 @@
                     </ul>
 
                     <a href="https://wa.me/5491162304028?text=Hola%20Marton,%20estoy%20interesado%20en%20suplementaci%C3%B3n%20qu%C3%ADmica.%20%C2%BFMe%20pas%C3%A1s%20m%C3%A1s%20info%3F"
-                        target="_blank" rel="noopener noreferrer" class="asesorias__note">
+                        target="_blank" rel="noopener noreferrer" class="asesorias__note"
+                        onclick="fbq('track', 'Contact');">
                         <img src="assets/icons/pill-bottle.svg" alt="" aria-hidden="true" class="asesorias__note-icon"
                             loading="lazy" decoding="async">
                         Suplementación química (consultá por WhatsApp)
@@ -924,7 +931,8 @@
                         <!-- <p class="asesorias__price">$82.000 ARS / mes</p> -->
                         <a href="https://wa.me/5491162304028?text=%C2%A1Hola%20Marton!%20Estoy%20interesado%20en%20tus%20asesor%C3%ADas%201%20a%201,%20%C2%BFme%20pas%C3%A1s%20m%C3%A1s%20info%3F"
                             aria-label="Escribime por WhatsApp – Asesorías 1 a 1" target="_blank"
-                            rel="noopener noreferrer" class="asesorias__cta ">Empezar ahora →</a>
+                            rel="noopener noreferrer" class="asesorias__cta" onclick="fbq('track', 'Contact');">Empezar
+                            ahora →</a>
                     </div>
                 </div>
 
@@ -946,7 +954,6 @@
         <section class="dietas" id="dietas" aria-labelledby="dietas-title">
             <div class="dietas__container container">
 
-                <!-- HEADER -->
                 <div class="dietas__header">
                     <h2 class="dietas__title" id="dietas-title">Dietas disponibles</h2>
                     <p class="dietas__description">
@@ -954,330 +961,201 @@
                     </p>
                 </div>
 
-                <!-- CARDS -->
                 <div class="dietas__cards">
 
-                    <!-- DIETA DE VOLUMEN -->
-                    <article class="dietas__card">
+                    <article class="dietas__card" data-nombre="Dieta Volumen" data-precio="32500">
                         <div class="dietas__card-media">
                             <img src="assets/img/portada-dieta-volumen.jpg" alt="Dieta Volumen"
                                 class="dietas__card-image" loading="lazy" decoding="async">
-                            <!-- <div class="dietas__card-label">Bestseller</div>    -->
                         </div>
-
                         <div class="dietas__card-body">
                             <div class="dietas__card-badges">
                                 <span class="dietas__badge dietas__badge--icon">
                                     <img src="assets/icons/flame-white.svg" alt="" aria-hidden="true">
                                     Máxima Hipertrofia
                                 </span>
-                                <span class="dietas__badge dietas__badge--level">
-                                    ≈3000 kcals
-                                </span>
+                                <span class="dietas__badge dietas__badge--level">≈3000 kcals</span>
                             </div>
-
-                            <p class="dietas__card-text">
-                                Plan diseñado para maximizar la ganancia de masa muscular y fuerza.
-                            </p>
-
+                            <p class="dietas__card-text">Plan diseñado para maximizar la ganancia de masa muscular y
+                                fuerza.</p>
                             <div class="dietas__card-bottom">
                                 <div class="dietas__card-prices">
                                     <p class="dietas__card-price--before">Antes: $45.000</p>
                                     <p class="dietas__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true">
-                                        Ahora: $32.500
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true"> Ahora: $32.500
                                     </p>
                                 </div>
-
                                 <a href="https://mpago.la/2PLRLoR" target="_blank" rel="noopener"
-                                    class="dietas__card-btn">COMPRAR →</a>
+                                    class="dietas__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Dieta Volumen', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- DIETA DE DEFINICION -->
-                    <article class="dietas__card">
-
+                    <article class="dietas__card" data-nombre="Dieta Definicion" data-precio="32500">
                         <div class="dietas__card-media">
                             <img src="assets/img/portada-dieta-definicion.jpg" alt="Dieta Definicion"
                                 class="dietas__card-image" loading="lazy" decoding="async">
-                            <!-- <div class="dietas__card-label">Recomendado</div> -->
                         </div>
-
                         <div class="dietas__card-body">
                             <div class="dietas__card-badges">
                                 <span class="dietas__badge dietas__badge--icon">
-                                    <img src="assets/icons/flame-white.svg" alt="" aria-hidden="true">
-                                    Definición
+                                    <img src="assets/icons/flame-white.svg" alt="" aria-hidden="true"> Definición
                                 </span>
-                                <span class="dietas__badge dietas__badge--level">
-                                    ≈1850 kcals
-                                </span>
+                                <span class="dietas__badge dietas__badge--level">≈1850 kcals</span>
                             </div>
-
-                            <p class="dietas__card-text">
-                                Balance ideal para reducir porcentaje graso y resaltar la musculatura ganada.
-                            </p>
-
+                            <p class="dietas__card-text">Balance ideal para reducir porcentaje graso y resaltar la
+                                musculatura ganada.</p>
                             <div class="dietas__card-bottom">
                                 <div class="dietas__card-prices">
                                     <p class="dietas__card-price--before">Antes: $45.000</p>
                                     <p class="dietas__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true">
-                                        Ahora: $32.500
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true"> Ahora: $32.500
                                     </p>
                                 </div>
-
                                 <a href="https://mpago.la/2DtvcCJ" target="_blank" rel="noopener"
-                                    class="dietas__card-btn">COMPRAR →</a>
+                                    class="dietas__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Dieta Definición', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- DIETA KETO -->
-                    <article class="dietas__card">
+                    <article class="dietas__card" data-nombre="Dieta Keto" data-precio="32500">
                         <div class="dietas__card-media">
                             <img src="assets/img/portada-dieta-keto.jpg" alt="Dieta Keto" class="dietas__card-image"
                                 loading="lazy" decoding="async">
-                            <!-- <div class="dietas__card-label">Tendencia</div> -->
                         </div>
-
                         <div class="dietas__card-body">
                             <div class="dietas__card-badges">
                                 <span class="dietas__badge dietas__badge--icon">
-                                    <img src="assets/icons/flame-white.svg" alt="" aria-hidden="true">
-                                    Máxima Cetosis
+                                    <img src="assets/icons/flame-white.svg" alt="" aria-hidden="true"> Máxima Cetosis
                                 </span>
-                                <span class="dietas__badge dietas__badge--level">
-                                    ≈1950 kcals
-                                </span>
+                                <span class="dietas__badge dietas__badge--level">≈1950 kcals</span>
                             </div>
-
-                            <p class="dietas__card-text">
-                                Plan basado en grasas y proteínas para reprogramar tu metabolismo.
-                            </p>
-
+                            <p class="dietas__card-text">Plan basado en grasas y proteínas para reprogramar tu
+                                metabolismo.</p>
                             <div class="dietas__card-bottom">
                                 <div class="dietas__card-prices">
                                     <p class="dietas__card-price--before">Antes: $45.000</p>
                                     <p class="dietas__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true">
-                                        Ahora: $32.500
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true"> Ahora: $32.500
                                     </p>
                                 </div>
-
                                 <a href="https://mpago.la/16CPeDW" target="_blank" rel="noopener"
-                                    class="dietas__card-btn">COMPRAR →</a>
+                                    class="dietas__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Dieta Keto', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- DIETA SUPER DEFINICION -->
-                    <article class="dietas__card">
+                    <article class="dietas__card" data-nombre="Dieta Super Definicion" data-precio="32500">
                         <div class="dietas__card-media">
                             <img src="assets/img/portada-dieta-super-definicion.png" alt="Dieta Súper Definición"
                                 class="dietas__card-image" loading="lazy" decoding="async">
                             <div class="dietas__card-label">Elite</div>
                         </div>
-
                         <div class="dietas__card-body">
                             <div class="dietas__card-badges">
                                 <span class="dietas__badge dietas__badge--icon">
-                                    <img src="assets/icons/flame-white.svg" alt="" aria-hidden="true">
-                                    Secado Máximo
+                                    <img src="assets/icons/flame-white.svg" alt="" aria-hidden="true"> Secado Máximo
                                 </span>
-                                <span class="dietas__badge dietas__badge--level">
-                                    ≈1650 kcals
-                                </span>
+                                <span class="dietas__badge dietas__badge--level">≈1650 kcals</span>
                             </div>
-
-                            <p class="dietas__card-text">
-                                Déficit estratégico diseñado para eliminar el último rastro de grasa rebelde.
-                            </p>
-
+                            <p class="dietas__card-text">Déficit estratégico diseñado para eliminar el último rastro de
+                                grasa rebelde.</p>
                             <div class="dietas__card-bottom">
                                 <div class="dietas__card-prices">
                                     <p class="dietas__card-price--before">Antes: $45.000</p>
                                     <p class="dietas__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true">
-                                        Ahora: $32.500
+                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true"> Ahora: $32.500
                                     </p>
                                 </div>
-
                                 <a href="https://mpago.la/2uMJCnh" target="_blank" rel="noopener"
-                                    class="dietas__card-btn">COMPRAR →</a>
+                                    class="dietas__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Dieta Súper Definición', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- DIETA DE LA SEMANA #1 -->
-                    <article class="dietas__card">
+                    <article class="dietas__card" data-nombre="Dieta 3500kcal" data-precio="32500">
                         <div class="dietas__card-media">
-                            <img src="assets/img/portada-dieta-3500.jpg" alt="Rutina de 3 días para hombres"
-                                class="dietas__card-image" loading="lazy" decoding="async">
+                            <img src="assets/img/portada-dieta-3500.jpg" alt="Dieta 3500kcal" class="dietas__card-image"
+                                loading="lazy" decoding="async">
                         </div>
-
                         <div class="dietas__card-body">
                             <div class="dietas__card-badges">
                                 <span class="dietas__badge dietas__badge--icon">
                                     <img src="assets/icons/biceps-flexed.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">
-                                    Volumen
+                                        height="16"> Volumen
                                 </span>
                                 <span class="dietas__badge dietas__badge--level">≈3500 kcal</span>
                             </div>
-
-                            <p class="dietas__card-text">
-                                Estructura de 3.500 kcal con el timing exacto de nutrientes
-                                para potenciar tu rendimiento.
-                            </p>
-
+                            <p class="dietas__card-text">Estructura de 3.500 kcal con el timing exacto de nutrientes
+                                para potenciar tu rendimiento.</p>
                             <div class="dietas__card-bottom">
                                 <div class="dietas__card-prices">
                                     <p class="dietas__card-price--before">Antes: $42.000</p>
                                     <p class="dietas__card-price--now">
                                         <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
+                                            height="16"> Ahora: $32.500
                                     </p>
                                 </div>
                                 <a href="https://mpago.la/26xPzrr" target="_blank" rel="noopener"
-                                    class="dietas__card-btn">COMPRAR →</a>
+                                    class="dietas__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Dieta 3500kcal', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Dieta 2300kcal Ayuno -->
-                    <article class="dietas__card">
+                    <article class="dietas__card" data-nombre="Dieta Ayuno" data-precio="32500">
                         <div class="dietas__card-media">
-                            <img src="assets/img/portada-dieta-2300.jpg" alt="Dieta 2300kcal Ayuno"
-                                class="dietas__card-image" loading="lazy" decoding="async">
+                            <img src="assets/img/portada-dieta-2300.jpg" alt="Dieta Ayuno" class="dietas__card-image"
+                                loading="lazy" decoding="async">
                         </div>
-
                         <div class="dietas__card-body">
                             <div class="dietas__card-badges">
                                 <span class="dietas__badge dietas__badge--icon">
                                     <img src="assets/icons/biceps-flexed.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">
-                                    Ideal Ayuno
+                                        height="16"> Ideal Ayuno
                                 </span>
                                 <span class="dietas__badge dietas__badge--level">≈2300 kcal</span>
                             </div>
-
-                            <p class="dietas__card-text">
-                                Estructura ideal para quienes entrenan y hacen ayuno.
-                            </p>
-
+                            <p class="dietas__card-text">Estructura ideal para quienes entrenan y hacen ayuno.</p>
                             <div class="dietas__card-bottom">
                                 <div class="dietas__card-prices">
                                     <p class="dietas__card-price--before">Antes: $42.000</p>
                                     <p class="dietas__card-price--now">
                                         <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
+                                            height="16"> Ahora: $32.500
                                     </p>
                                 </div>
                                 <a href="https://mpago.la/11XtGsp" target="_blank" rel="noopener"
-                                    class="dietas__card-btn">COMPRAR →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Dieta 3300kcal Mediodía -->
-                    <article class="dietas__card">
-                        <div class="dietas__card-media">
-                            <img src="assets/img/portada-dieta-3300.jpg" alt="Dieta 3300kcal Mediodía"
-                                class="dietas__card-image" loading="lazy" decoding="async">
-                        </div>
-
-                        <div class="dietas__card-body">
-                            <div class="dietas__card-badges">
-                                <span class="dietas__badge dietas__badge--icon">
-                                    <img src="assets/icons/biceps-flexed.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">
-                                    Entreno Mediodía
-                                </span>
-                                <span class="dietas__badge dietas__badge--level">≈3300 kcal</span>
-                            </div>
-
-                            <p class="dietas__card-text">
-                                Estructura ideal para quienes entrenan a mitad del día y necesitan energía pura.
-                            </p>
-
-                            <div class="dietas__card-bottom">
-                                <div class="dietas__card-prices">
-                                    <p class="dietas__card-price--before">Antes: $42.000</p>
-                                    <p class="dietas__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
-                                    </p>
-                                </div>
-                                <a href="https://mpago.la/1e2SKDU" target="_blank" rel="noopener"
-                                    class="dietas__card-btn">COMPRAR →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- DIETA VERTICAL -->
-                    <article class="dietas__card">
-                        <div class="dietas__card-media">
-                            <img src="assets/img/portada-dieta-vertical.jpg" alt="Dieta Vertical Stan Efferding"
-                                class="dietas__card-image" loading="lazy" decoding="async">
-                        </div>
-
-                        <div class="dietas__card-body">
-                            <div class="dietas__card-badges">
-                                <span class="dietas__badge dietas__badge--icon">
-                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">Bio-Regulación</span>
-                                <span class="dietas__badge dietas__badge--level">Optimización</span>
-                            </div>
-
-                            <p class="dietas__card-text">
-                                Implementá el sistema de nutrición de Stan Efferding para mejorar tu digestión y
-                                performance en el gimnasio.
-                            </p>
-
-                            <div class="dietas__card-bottom">
-                                <div class="dietas__card-prices">
-                                    <p class="dietas__card-price--before">Antes: $42.000</p>
-                                    <p class="dietas__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
-                                    </p>
-                                </div>
-                                <a href="https://mpago.la/22iubQ2" target="_blank" rel="noopener"
-                                    class="dietas__card-btn">COMPRAR →</a>
+                                    class="dietas__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Dieta 2300kcal Ayuno', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
 
                 </div>
 
-                <!-- DOTS -->
-                <div class="dots-navigation">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-                <!-- end of DOTS -->
-
-                <!-- INFO FINAL -->
                 <div class="dietas__info">
                     <p class="dietas__info-text">
-                        <img src="./assets/icons/download.svg" alt="" aria-hidden="true">
-                        Recibís tu dieta en PDF al instante.
+                        <img src="./assets/icons/download.svg" alt="" aria-hidden="true"> Recibís tu dieta en PDF al
+                        instante.
                     </p>
                     <p class="dietas__info-text">
-                        <img src="./assets/icons/user-x.svg" alt="" aria-hidden="true">
-                        No incluye seguimiento personalizado.
+                        <img src="./assets/icons/user-x.svg" alt="" aria-hidden="true"> No incluye seguimiento
+                        personalizado.
                     </p>
                     <p class="dietas__info-text">
-                        <img src="./assets/icons/message-square.svg" alt="" aria-hidden="true">
-                        ¿Querés algo a medida? <a href="#asesorias">Mirá la asesoría 1 a 1.</a>
+                        <img src="./assets/icons/message-square.svg" alt="" aria-hidden="true"> ¿Querés algo a medida?
+                        <a href="#asesorias">Mirá la asesoría 1 a 1.</a>
                     </p>
                 </div>
 
@@ -1295,13 +1173,14 @@
                 </p>
                 <a href="https://wa.me/5491162304028?text=Hola%20Marton!%20Tengo%20una%20consulta%20sobre%20.."
                     aria-label="Escribime por WhatsApp – Consultas" target="_blank" rel="noopener noreferrer"
-                    class="consultas__btn">
+                    class="consultas__btn" onclick="fbq('track', 'Contact');">
                     HABLEMOS POR WHATSAPP →
                 </a>
             </div>
         </section>
         <!-- end of CONSULTAS -->
 
+        <!-- GUIAS -->
         <section class="guias guias__destacados" id="guias" aria-labelledby="guias-title">
             <div class="guias__container container guias__destacados">
 
@@ -1316,33 +1195,22 @@
                             <img src="assets/img/portada-regulacion-enfoque.jpg" alt="Guía Regulación y Enfoque"
                                 class="guias__card-image" loading="lazy" decoding="async">
                         </div>
-
                         <div class="guias__card-body">
                             <div class="guias__card-badges">
-                                <span class="guias__badge guias__badge--icon">
-                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">
-                                    Bio-Regulación
-                                </span>
+                                <span class="guias__badge guias__badge--icon"> Bio-Regulación </span>
                                 <span class="guias__badge guias__badge--level">Optimización</span>
                             </div>
-
-                            <p class="guias__card-text">
-                                Protocolo de bio-regulación para dominar tu dopamina, optimizar tu descanso y reducir el
-                                estrés.
-                            </p>
-
+                            <p class="guias__card-text">Protocolo de bio-regulación para dominar tu dopamina, optimizar
+                                tu descanso y reducir el estrés.</p>
                             <div class="guias__card-bottom">
                                 <div class="guias__card-prices">
                                     <p class="guias__card-price--before">Antes: $42.000</p>
-                                    <p class="guias__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
-                                    </p>
+                                    <p class="guias__card-price--now">Ahora: $32.500</p>
                                 </div>
                                 <a href="https://mpago.la/2ZoabB8" target="_blank" rel="noopener"
-                                    class="guias__card-btn">COMPRAR →</a>
+                                    class="guias__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Guía Regulación y Enfoque', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
@@ -1352,32 +1220,22 @@
                             <img src="assets/img/portada-guia-acne.jpg" alt="Protocolo Acné" class="guias__card-image"
                                 loading="lazy" decoding="async">
                         </div>
-
                         <div class="guias__card-body">
                             <div class="guias__card-badges">
-                                <span class="guias__badge guias__badge--icon">
-                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">
-                                    Bio-Regulación
-                                </span>
+                                <span class="guias__badge guias__badge--icon"> Bio-Regulación </span>
                                 <span class="guias__badge guias__badge--level">Optimización</span>
                             </div>
-
-                            <p class="guias__card-text">
-                                Abordaje integral del acné desde la salud hepática, intestinal y el equilibrio hormonal.
-                            </p>
-
+                            <p class="guias__card-text">Abordaje integral del acné desde la salud hepática, intestinal y
+                                el equilibrio hormonal.</p>
                             <div class="guias__card-bottom">
                                 <div class="guias__card-prices">
                                     <p class="guias__card-price--before">Antes: $42.000</p>
-                                    <p class="guias__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
-                                    </p>
+                                    <p class="guias__card-price--now">Ahora: $32.500</p>
                                 </div>
                                 <a href="https://mpago.la/1sywVpq" target="_blank" rel="noopener"
-                                    class="guias__card-btn">COMPRAR →</a>
+                                    class="guias__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Protocolo Acné', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
@@ -1387,33 +1245,22 @@
                             <img src="assets/img/portada-protocolo-lacteos.jpg" alt="Protocolo Leche A1 vs A2"
                                 class="guias__card-image" loading="lazy" decoding="async">
                         </div>
-
                         <div class="guias__card-body">
                             <div class="guias__card-badges">
-                                <span class="guias__badge guias__badge--icon">
-                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">
-                                    Bio-Regulación
-                                </span>
+                                <span class="guias__badge guias__badge--icon"> Bio-Regulación </span>
                                 <span class="guias__badge guias__badge--level">Optimización</span>
                             </div>
-
-                            <p class="guias__card-text">
-                                Recuperá tu capacidad de digerir lácteos sanando tu mucosa intestinal y eliminando la
-                                leche mutada.
-                            </p>
-
+                            <p class="guias__card-text">Recuperá tu capacidad de digerir lácteos sanando tu mucosa
+                                intestinal y eliminando la leche mutada.</p>
                             <div class="guias__card-bottom">
                                 <div class="guias__card-prices">
                                     <p class="guias__card-price--before">Antes: $42.000</p>
-                                    <p class="guias__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
-                                    </p>
+                                    <p class="guias__card-price--now">Ahora: $32.500</p>
                                 </div>
                                 <a href="https://mpago.la/1XuS9vG" target="_blank" rel="noopener"
-                                    class="guias__card-btn">COMPRAR →</a>
+                                    class="guias__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Protocolo Lácteos', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
@@ -1423,32 +1270,22 @@
                             <img src="assets/img/portada-guia-pump.jpg" alt="Guía para Pump Masivo"
                                 class="guias__card-image" loading="lazy" decoding="async">
                         </div>
-
                         <div class="guias__card-body">
                             <div class="guias__card-badges">
-                                <span class="guias__badge guias__badge--icon">
-                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">
-                                    Vasodilatación
-                                </span>
+                                <span class="guias__badge guias__badge--icon"> Vasodilatación </span>
                                 <span class="guias__badge guias__badge--level">Pro Pump</span>
                             </div>
-
-                            <p class="guias__card-text">
-                                Dominá la farmacología y suplementación para bombeos que rompen la piel.
-                            </p>
-
+                            <p class="guias__card-text">Dominá la farmacología y suplementación para bombeos que rompen
+                                la piel.</p>
                             <div class="guias__card-bottom">
                                 <div class="guias__card-prices">
                                     <p class="guias__card-price--before">Antes: $42.000</p>
-                                    <p class="guias__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
-                                    </p>
+                                    <p class="guias__card-price--now">Ahora: $32.500</p>
                                 </div>
                                 <a href="https://mpago.la/2pHWq9N" target="_blank" rel="noopener"
-                                    class="guias__card-btn">COMPRAR →</a>
+                                    class="guias__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Guía Pump Masivo', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
@@ -1458,31 +1295,22 @@
                             <img src="assets/img/portada-recetario-fitness.jpg" alt="Recetario Fitness"
                                 class="guias__card-image" loading="lazy" decoding="async">
                         </div>
-
                         <div class="guias__card-body">
                             <div class="guias__card-badges">
-                                <span class="guias__badge guias__badge--icon">
-                                    <img src="assets/icons/biceps-flexed.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">60 Recetas</span>
+                                <span class="guias__badge guias__badge--icon"> 60 Recetas </span>
                                 <span class="guias__badge guias__badge--level">Nutrición</span>
                             </div>
-
-                            <p class="guias__card-text">
-                                Comé rico y proteico con 60 recetas fáciles diseñadas para maximizar tus resultados sin
-                                complicaciones.
-                            </p>
-
+                            <p class="guias__card-text">Comé rico y proteico con 60 recetas fáciles diseñadas para
+                                maximizar tus resultados sin complicaciones.</p>
                             <div class="guias__card-bottom">
                                 <div class="guias__card-prices">
                                     <p class="guias__card-price--before">Antes: $42.000</p>
-                                    <p class="guias__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
-                                    </p>
+                                    <p class="guias__card-price--now">Ahora: $32.500</p>
                                 </div>
                                 <a href="https://mpago.la/2uFAiPw" target="_blank" rel="noopener"
-                                    class="guias__card-btn">COMPRAR →</a>
+                                    class="guias__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Recetario Fitness', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
@@ -1492,35 +1320,25 @@
                             <img src="assets/img/portada-protocolo-glp1.jpg" alt="Protocolo Conductual GLP-1"
                                 class="guias__card-image" loading="lazy" decoding="async">
                         </div>
-
                         <div class="guias__card-body">
                             <div class="guias__card-badges">
-                                <span class="guias__badge guias__badge--icon">
-                                    <img src="assets/icons/flask-conical-white.svg" alt="" aria-hidden="true" width="16"
-                                        height="16" loading="lazy" decoding="async">Bio-Regulación</span>
+                                <span class="guias__badge guias__badge--icon">Bio-Regulación</span>
                                 <span class="guias__badge guias__badge--level">Optimización</span>
                             </div>
-
-                            <p class="guias__card-text">
-                                Guía clínica para optimizar resultados durante la terapia y en la transición fuera del
-                                tratamiento.
-                            </p>
-
+                            <p class="guias__card-text">Guía clínica para optimizar resultados durante la terapia y en
+                                la transición fuera del tratamiento.</p>
                             <div class="guias__card-bottom">
                                 <div class="guias__card-prices">
                                     <p class="guias__card-price--before">Antes: $42.000</p>
-                                    <p class="guias__card-price--now">
-                                        <img src="assets/icons/flame.svg" alt="" aria-hidden="true" width="16"
-                                            height="16" loading="lazy" decoding="async">
-                                        Ahora: $32.500
-                                    </p>
+                                    <p class="guias__card-price--now">Ahora: $32.500</p>
                                 </div>
                                 <a href="https://mpago.la/12gC9qB" target="_blank" rel="noopener"
-                                    class="guias__card-btn">COMPRAR →</a>
+                                    class="guias__card-btn"
+                                    onclick="fbq('track', 'InitiateCheckout', {content_name: 'Protocolo GLP-1', value: 32500, currency: 'ARS'});">COMPRAR
+                                    →</a>
                             </div>
                         </div>
                     </article>
-
                 </div>
 
                 <div class="dots-navigation">
@@ -1531,9 +1349,9 @@
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </div>
-
             </div>
         </section>
+        <!-- end of GUIAS -->
 
         <!-- TESTIMONIOS -->
         <section class="testimonios" id="testimonios" aria-labelledby="testimonios-title">

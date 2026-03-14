@@ -51,6 +51,29 @@
             }
         }
     </style>
+
+    <!-- Pixel -->
+
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '898671773158539');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=898671773158539&ev=PageView&noscript=1" />
+    </noscript>
+
 </head>
 
 <body class="layout-exito">
@@ -95,7 +118,8 @@
 
             <div class="exito__actions">
                 <a href="https://wa.me/5491138003141?text=%C2%A1Hola%20Marton!%20Tuve%20un%20problema%20con%20la%20descarga%20directa%20de%20mi%20plan.%20%C2%BFMe%20podr%C3%ADas%20ayudar%3F"
-                    class="exito__btn-help" target="_blank" rel="noopener noreferrer">
+                    class="exito__btn-help" onclick="fbq('track', 'Contact');" target="_blank"
+                    rel="noopener noreferrer">
                     ¿PROBLEMAS CON LA DESCARGA? ESCRIBIME ACÁ (Soporte)
                 </a>
                 <a href="index.html" class="exito__btn-back"
@@ -135,23 +159,29 @@
             const successUI = document.getElementById('success-ui');
             const errorUI = document.getElementById('error-ui');
             const downloadBtn = document.getElementById('download-btn');
-            const appNotice = document.getElementById('app-notice'); // El nuevo ID genérico
+            const appNotice = document.getElementById('app-notice');
 
             // Detectores
             const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-            // Detecta casi cualquier navegador integrado de RRSS
             const isInApp = /Instagram|FBAN|FBAV|Discord|Twitter|Threads|Line/i.test(navigator.userAgent);
 
             if (fileId && fileId.length > 15) {
                 downloadBtn.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
                 successUI.style.display = 'block';
 
-                // Forzamos target blank para iOS y Apps para mejorar compatibilidad
+                // --- TRACKING ---
+                if (typeof fbq !== 'undefined') {
+                    fbq('track', 'Purchase', {
+                        value: 32500.00,
+                        currency: 'ARS'
+                    });
+                }
+                // ----------------------------
+
                 if (isIOS || isInApp) {
                     downloadBtn.setAttribute('target', '_blank');
                 }
 
-                // Si detectamos que NO es un navegador real (Chrome/Safari), mostramos el aviso
                 if (isInApp) {
                     appNotice.style.display = 'block';
                 }
